@@ -44,6 +44,7 @@ public class Camera extends BaseCameraScene{
         final CustomMenuItem home = new CustomMenuItem("home", menuWidth, menuHeight);
         final CustomMenuItem videoclips = new CustomMenuItem("video clips", menuWidth, menuHeight);
         final CustomMenuItem snapshots = new CustomMenuItem("snapshots", menuWidth, menuHeight);
+        final CustomMenuItem capture = new CustomMenuItem("capture", menuWidth, menuHeight);
         final CustomMenuItem exit = new CustomMenuItem("exit", menuWidth, menuHeight);
 
         home.setOnMouseClicked(e -> {
@@ -61,6 +62,10 @@ public class Camera extends BaseCameraScene{
             Main.onSnapShots();
         });
 
+        capture.setOnMouseClicked(event -> {
+            stillImage();
+        });
+
         exit.setOnMouseClicked(e -> {
             Boolean confirmQuit = Main.onExit();
             if(confirmQuit){
@@ -68,10 +73,16 @@ public class Camera extends BaseCameraScene{
             }
         });
 
-        menuBox = new MenuHBox(home, videoclips, snapshots, exit);
+        menuBox = new MenuHBox(home, videoclips, snapshots, capture, exit);
 
-        menuBox.setTranslateX((displayWidth -  4 * menuWidth)/2.0);
+        menuBox.setTranslateX((displayWidth - 5 * menuWidth)/2.0);
         menuBox.setTranslateY(0);
+
+    }
+
+    public void stillImage(){
+
+
 
     }
 
