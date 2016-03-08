@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CamerViewer-v-1-0.iml" filepath="$PROJECT_DIR$/CamerViewer-v-1-0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CameraViewer-v-1-0.iml" filepath="$PROJECT_DIR$/CameraViewer-v-1-0.iml" />
     </modules>
   </component>
 </project>
