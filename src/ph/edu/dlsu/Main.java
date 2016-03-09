@@ -110,15 +110,13 @@ public class Main extends Application{
                 new Scene(camera.createCameraContent(),
                         displayWidth, displayHeight)
         );
-
     }
 
     public static void onLogin(){
         LogIn login = new LogIn();
         stage.setTitle("LogIn");
         stage.setScene(
-                new Scene(login.createCameraContent(),
-                        displayWidth, displayHeight)
+                new Scene(login.main(), displayWidth, displayHeight)
         );
     }
 

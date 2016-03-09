@@ -1,28 +1,19 @@
 package ph.edu.dlsu;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import org.opencv.core.Mat;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Utils;
 
-public class LogIn extends BaseCameraScene{
+public class LogIn{
 
+    MenuHBox menuBox;
+    ScreenSize screen = new ScreenSize();
+    double displayWidth = screen.getDisplayWidth();
+    double displayHeight = screen.getDisplayHeight();
 
-    @Override
-    public Parent createCameraContent() {
-        ScreenSize screen = new ScreenSize();
-        displayWidth = screen.getDisplayWidth();
-        displayHeight = screen.getDisplayHeight();
+    public Parent main(){
 
         Pane rootNode = new Pane();
         rootNode.setPrefSize(displayWidth, displayHeight);
@@ -32,7 +23,9 @@ public class LogIn extends BaseCameraScene{
             rootNode.getChildren().add(imgBackground);
         }
 
-        createLogin();
+//        MenuTitle title = new MenuTitle("Username");
+//        title.setTranslateX(200);
+//        title.setTranslateY(200);
 
         createHMenu();
 
@@ -41,39 +34,11 @@ public class LogIn extends BaseCameraScene{
         return rootNode;
     }
 
-    public void createLogin(){
-        MenuTitle title = new MenuTitle("login");
-        title.setTranslateX(200);
-        title.setTranslateY(200);
 
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER);
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(25, 25, 25, 25));
-
-        Label userName = new Label("User Name:");
-        grid.add(userName, 0 , 1);
-        userName.setAlignment(Pos.CENTER);
-
-        TextField userTextField = new TextField();
-        grid.add(userTextField, 1, 1);
-
-        Label pw = new Label("Password:");
-        grid.add(pw, 0, 2);
-
-        PasswordField pwBox = new PasswordField();
-        grid.add(pwBox, 1, 2);
-
-        Button btn = new Button("Login");
-        HBox hbBtn = new HBox(10);
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-        hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
-    }
-
-    @Override
     public void createHMenu() {
+
+        final double menuWidth = 220;
+        final double menuHeight = 40;
 
         final CustomMenuItem home = new CustomMenuItem("home", menuWidth, menuHeight);
         final CustomMenuItem camera = new CustomMenuItem("camera", menuWidth, menuHeight);
@@ -98,20 +63,14 @@ public class LogIn extends BaseCameraScene{
         });
 
         exit.setOnMouseClicked(e -> {
-            Boolean confirmQuit = Main.onExit();
-            if(confirmQuit){
-                stopCamera();
-            }
+            Main.onExit();
         });
 
         menuBox = new MenuHBox(home, camera, videoclips, snapshots, exit);
 
-        menuBox.setTranslateX((displayWidth -  5 * menuWidth)/2.0);
+        menuBox.setTranslateX((displayWidth - 5 * menuWidth)/2.0);
         menuBox.setTranslateY(0);
+
     }
 
-    @Override
-    public void onCameraFrame(Mat frame) {
-        //nothing goes here
-    }
 }
