@@ -14,8 +14,6 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ScreenSize.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/Utils.class" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CameraViewer-v-1-0.iml" afterPath="$PROJECT_DIR$/CameraViewer-v-1-0.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" />
     </list>
     <ignored path="CameraViewer-v-1-0.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -440,6 +438,13 @@
       <option name="number" value="Default" />
       <updated>1457584839789</updated>
     </task>
+    <task id="LOCAL-00001" summary="Comments Added">
+      <created>1457586059497</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1457586059497</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -472,6 +477,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Comments Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments Added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
