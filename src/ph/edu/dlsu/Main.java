@@ -37,6 +37,7 @@ public class Main extends Application{
         stage.show();
     }
 
+    //To acces the drive of the screen and to get the input of the screen size
     private void initializeScreenSize(){
         ScreenSize screen = new ScreenSize();
         displayWidth = screen.getDisplayWidth();
@@ -64,7 +65,7 @@ public class Main extends Application{
     }
 
     private void createVMenu(){
-
+        //To create the menu and their functions
         final CustomMenuItem camera = new CustomMenuItem("camera");
         final CustomMenuItem login = new CustomMenuItem("login");
         final CustomMenuItem videoclips = new CustomMenuItem("video clips");
@@ -98,11 +99,13 @@ public class Main extends Application{
 
     }
 
+    //It is the Main Menu/Home Screen
     public static void onHome(){
         stage.setTitle(WINDOW_TITLE);
         stage.setScene(menuScene);
     }
 
+    //To view the camera or access camera and live stream
     public static void onCamera(){
         Camera camera = new Camera();
         stage.setTitle("Live Stream");
@@ -112,6 +115,7 @@ public class Main extends Application{
         );
     }
 
+    //This function serves the use to login theur username and password
     public static void onLogin(){
         LogIn login = new LogIn();
         stage.setTitle("LogIn");
@@ -120,10 +124,12 @@ public class Main extends Application{
         );
     }
 
+    //This function serves the user to acces the 5 minute VideoCLips that has been saved throughout the stream
     public static void onVideoClips(){
 
     }
 
+    //This function serves the user to access screenshots or pictures
     public static void onSnapShots(){
 
     }
