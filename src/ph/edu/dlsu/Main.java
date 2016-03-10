@@ -37,7 +37,7 @@ public class Main extends Application{
         stage.show();
     }
 
-    //To acces the drive of the screen and to get the input of the screen size
+    //To access the drive of the screen and to get the input of the screen size
     private void initializeScreenSize(){
         ScreenSize screen = new ScreenSize();
         displayWidth = screen.getDisplayWidth();
