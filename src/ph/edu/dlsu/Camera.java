@@ -21,12 +21,12 @@ public class Camera extends BaseCameraScene{
         Pane rootNode = new Pane();
         rootNode.setPrefSize(displayWidth, displayHeight);
 
-        ImageView imgBackground = Utils.loadImage2View("res//images//Arch's-Eye-Center.png", displayWidth, displayHeight);
+        ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Center.png", displayWidth, displayHeight);
         if(imgBackground != null){
             rootNode.getChildren().add(imgBackground);
         }
 
-        currentFrame = Utils.loadImage2View("res//images//Arch's-Eye-Center.png", frameWidth, frameHeight);
+        currentFrame = Utils.loadImage2View("res//images//Green-Screen-Center.png", frameWidth, frameHeight);
         currentFrame.setTranslateX((displayWidth - frameWidth)/2.0);
         currentFrame.setTranslateY(0);
         rootNode.getChildren().add(currentFrame);

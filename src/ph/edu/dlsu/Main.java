@@ -48,7 +48,7 @@ public class Main extends Application{
         Pane rootNode = new Pane();
         rootNode.setPrefSize(displayWidth, displayHeight);
 
-        ImageView imgBackground = Utils.loadImage2View("res//images//Arch's-Eye-Right.png", displayWidth, displayHeight);
+        ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Right.png", displayWidth, displayHeight);
         if(imgBackground != null){
             rootNode.getChildren().add(imgBackground);
         }
@@ -115,16 +115,60 @@ public class Main extends Application{
         );
     }
 
-    //This function serves the use to login theur username and password
+    //This function serves the use to login the username and password
     public static void onLogin(){
         LogIn login = new LogIn();
         stage.setTitle("LogIn");
+
+//        GridPane grid = new GridPane();
+//        grid.setAlignment(Pos.CENTER);
+//        grid.setHgap(10);
+//        grid.setVgap(10);
+//        grid.setPadding(new Insets(25, 25, 25, 25));
+
         stage.setScene(
                 new Scene(login.main(), displayWidth, displayHeight)
+               //new Scene(grid, displayWidth, displayHeight)
         );
+
+//        Button btn = new Button("Sign in");
+//        HBox hbBtn = new HBox(10);
+//        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+//        hbBtn.getChildren().add(btn);
+//        grid.add(hbBtn, 1, 4);
+//
+//        final Text actiontarget = new Text();
+//        grid.add(actiontarget, 1, 6);
+//
+//        btn.setOnAction(new EventHandler<ActionEvent>() {
+//
+//            @Override
+//            public void handle(ActionEvent e) {
+//                actiontarget.setFill(Color.FIREBRICK);
+//                actiontarget.setText("Sign in button pressed");
+//            }
+//        });
+//
+//        Text scenetitle = new Text("Welcome");
+//        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+//        grid.add(scenetitle, 0, 0, 2, 1);
+//
+//        Label userName = new Label("User Name:");
+//        grid.add(userName, 0, 1);
+//
+//        TextField userTextField = new TextField();
+//        grid.add(userTextField, 1, 1);
+//
+//        Label pw = new Label("Password:");
+//        grid.add(pw, 0, 2);
+//
+//        PasswordField pwBox = new PasswordField();
+//        grid.add(pwBox, 1, 2);
+//
+//        stage.show();
     }
 
-    //This function serves the user to acces the 5 minute VideoCLips that has been saved throughout the stream
+    //This function serves the user to access the 5 minute VideoCLips that has been saved throughout the stream
     public static void onVideoClips(){
 
     }

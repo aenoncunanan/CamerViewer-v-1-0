@@ -13,6 +13,8 @@ import javafx.scene.text.Text;
 
 public class CustomMenuItem extends StackPane{
 
+ //   Font customFont = Font.loadFont(getClass().getResourceAsStream("res//fonts//AsimovWid.otf"), 30);
+
     public CustomMenuItem(String name){
 
         LinearGradient gradient = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
@@ -29,6 +31,7 @@ public class CustomMenuItem extends StackPane{
         Text text = new Text(name);
         text.setFill(Color.web("#2c3e50"));
         text.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 30));
+ //       text.setFont(Font.font("customFont", FontWeight.SEMI_BOLD, 30));
 
         setAlignment(Pos.CENTER);
 
