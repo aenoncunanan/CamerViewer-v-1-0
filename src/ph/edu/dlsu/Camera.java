@@ -48,24 +48,14 @@ public class Camera extends BaseCameraScene{
     @Override
     public void createHMenu() {
         final CustomMenuItem home = new CustomMenuItem("home", menuWidth, menuHeight);
-        final CustomMenuItem videoclips = new CustomMenuItem("video clips", menuWidth, menuHeight);
-        final CustomMenuItem snapshots = new CustomMenuItem("snapshots", menuWidth, menuHeight);
+//        final CustomMenuItem videoclips = new CustomMenuItem("video clips", menuWidth, menuHeight);
+//        final CustomMenuItem snapshots = new CustomMenuItem("snapshots", menuWidth, menuHeight);
         final CustomMenuItem capture = new CustomMenuItem("capture", menuWidth, menuHeight);
         final CustomMenuItem exit = new CustomMenuItem("exit", menuWidth, menuHeight);
 
         home.setOnMouseClicked(e -> {
             stopCamera();
             Main.onHome();
-        });
-
-        videoclips.setOnMouseClicked(e -> {
-            stopCamera();
-            Main.onVideoClips();
-        });
-
-        snapshots.setOnMouseClicked(e -> {
-            stopCamera();
-            Main.onSnapShots();
         });
 
         capture.setOnMouseClicked(event -> {
@@ -79,9 +69,9 @@ public class Camera extends BaseCameraScene{
             }
         });
 
-        menuBox = new MenuHBox(home, videoclips, snapshots, capture, exit);
+        menuBox = new MenuHBox(home, capture, exit);
 
-        menuBox.setTranslateX((displayWidth - 5 * menuWidth)/2.0);
+        menuBox.setTranslateX((displayWidth - 3 * menuWidth)/2.0);
         menuBox.setTranslateY(0);
 
     }

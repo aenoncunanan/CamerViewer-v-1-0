@@ -9,6 +9,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.opencv.core.Core;
 import ph.edu.dlsu.utils.ConfirmationBox;
+import ph.edu.dlsu.utils.ImageBox;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Utils;
 
@@ -175,7 +176,7 @@ public class Main extends Application{
 
     //This function serves the user to access screenshots or pictures
     public static void onSnapShots(){
-
+        ImageBox.show();
     }
 
     public static boolean onExit(){
