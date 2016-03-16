@@ -93,9 +93,10 @@ public class Camera extends BaseCameraScene{
         if (takePicture){
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
             String currentDateandTime = sdf.format(new Date());
-            String fileName = currentDateandTime;
+            String fileName = currentDateandTime + ".png";
 
-            Imgcodecs.imwrite(currentDateandTime + ".png", frame);
+            Imgcodecs.imwrite(fileName, frame);
+
             takePicture = false;
 
         }

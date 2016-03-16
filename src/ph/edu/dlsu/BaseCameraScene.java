@@ -91,4 +91,8 @@ public abstract class BaseCameraScene {
         return imageToShow;
     }
 
+    private void record(){
+
+    }
+
 }
