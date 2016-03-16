@@ -48,8 +48,6 @@ public class Camera extends BaseCameraScene{
     @Override
     public void createHMenu() {
         final CustomMenuItem home = new CustomMenuItem("home", menuWidth, menuHeight);
-//        final CustomMenuItem videoclips = new CustomMenuItem("video clips", menuWidth, menuHeight);
-//        final CustomMenuItem snapshots = new CustomMenuItem("snapshots", menuWidth, menuHeight);
         final CustomMenuItem capture = new CustomMenuItem("capture", menuWidth, menuHeight);
         final CustomMenuItem exit = new CustomMenuItem("exit", menuWidth, menuHeight);
 
@@ -81,6 +79,7 @@ public class Camera extends BaseCameraScene{
        // Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
 
         if (takePicture){
+
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
             String currentDateandTime = sdf.format(new Date());
             String fileName = currentDateandTime + ".png";
