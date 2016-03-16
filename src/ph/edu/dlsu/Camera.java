@@ -8,6 +8,9 @@ import org.opencv.imgcodecs.Imgcodecs;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
@@ -66,7 +69,7 @@ public class Camera extends BaseCameraScene{
         });
 
         capture.setOnMouseClicked(event -> {
-            stillImage();
+            takePicture = true;
         });
 
         exit.setOnMouseClicked(e -> {
@@ -83,19 +86,20 @@ public class Camera extends BaseCameraScene{
 
     }
 
-    public void stillImage(){
-
-        takePicture = true;
-
-    }
-
     @Override
     public void onCameraFrame(Mat frame){
        // Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+
         if (takePicture){
-            Imgcodecs.imwrite("test.png", frame);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+            String currentDateandTime = sdf.format(new Date());
+            String fileName = currentDateandTime;
+
+            Imgcodecs.imwrite(currentDateandTime + ".png", frame);
             takePicture = false;
+
         }
+
     }
 
 }
