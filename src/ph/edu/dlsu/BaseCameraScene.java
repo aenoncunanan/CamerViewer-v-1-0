@@ -70,7 +70,7 @@ public abstract class BaseCameraScene {
 
     }
 
-    private Image grabFrame(){
+    public Image grabFrame(){
         Image imageToShow = null;
         Mat frame = new Mat();
 

@@ -4,10 +4,13 @@ import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Utils;
 
 public class Camera extends BaseCameraScene{
+
+    private boolean takePicture = false;
 
     @Override
     public Parent createCameraContent(){
@@ -82,13 +85,17 @@ public class Camera extends BaseCameraScene{
 
     public void stillImage(){
 
-
+        takePicture = true;
 
     }
 
     @Override
     public void onCameraFrame(Mat frame){
-//        Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+       // Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+        if (takePicture){
+            Imgcodecs.imwrite("test.png", frame);
+            takePicture = false;
+        }
     }
 
 }
