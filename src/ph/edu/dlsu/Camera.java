@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import ph.edu.dlsu.utils.ScreenSize;
+import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
 
 import java.text.SimpleDateFormat;
@@ -57,7 +58,19 @@ public class Camera extends BaseCameraScene{
         });
 
         capture.setOnMouseClicked(event -> {
+
+//            try {
+//                String audioPath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\res\\sounds\\camera.mp3";
+//                (new Sound("Paths.get(audioPath).toUri().toURL().toString()")).play();
+//                //(new Sound(audioPath)).play();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+
+            (new Sound("file:res/sounds/camera.mp3")).play();
+
             takePicture = true;
+
         });
 
         exit.setOnMouseClicked(e -> {
