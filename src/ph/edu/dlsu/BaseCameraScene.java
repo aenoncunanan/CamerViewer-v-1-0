@@ -38,7 +38,8 @@ public abstract class BaseCameraScene {
 
     public void startCamera(){
 
-        this.capture.open(0);
+//        this.capture.open(0);
+        this.capture.open("http://208.42.203.54:8588/video?x.mjpeg");
 
         if(this.capture.isOpened()){
             Runnable frameGrabber = () -> {
@@ -89,10 +90,6 @@ public abstract class BaseCameraScene {
         }
 
         return imageToShow;
-    }
-
-    private void record(){
-
     }
 
 }

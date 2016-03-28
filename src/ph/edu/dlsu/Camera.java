@@ -4,7 +4,11 @@ import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import org.opencv.core.Mat;
+import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.videoio.VideoCapture;
+import org.opencv.videoio.VideoWriter;
+import org.opencv.videoio.Videoio;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
@@ -59,16 +63,7 @@ public class Camera extends BaseCameraScene{
 
         capture.setOnMouseClicked(event -> {
 
-//            try {
-//                String audioPath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\res\\sounds\\camera.mp3";
-//                (new Sound("Paths.get(audioPath).toUri().toURL().toString()")).play();
-//                //(new Sound(audioPath)).play();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-
             (new Sound("file:res/sounds/camera.mp3")).play();
-
             takePicture = true;
 
         });
@@ -97,9 +92,34 @@ public class Camera extends BaseCameraScene{
             String currentDateandTime = sdf.format(new Date());
             String fileName = currentDateandTime + ".png";
 
-            Imgcodecs.imwrite(fileName, frame);
+            Imgcodecs.imwrite(fileName, frame); //imgcapture
 
-            takePicture = false;
+
+            String url = null;
+            final String outputFile="output.avi";
+
+            //url = frame;
+
+            VideoCapture videoCapture = new VideoCapture(String.valueOf(frame));
+            final Size frameSize=new Size((int)videoCapture.get(Videoio.CAP_PROP_FRAME_WIDTH),(int)videoCapture.get(Videoio.CAP_PROP_FRAME_HEIGHT));
+            final FourCC fourCC=new FourCC("XVID");
+            VideoWriter videoWriter=new VideoWriter(outputFile,fourCC.toInt(),videoCapture.get(Videoio.CAP_PROP_FPS),frameSize,true);
+            final Mat mat=new Mat();
+            int frames = 0;
+            final long startTime=System.currentTimeMillis();
+            while (videoCapture.read(mat)) {
+                videoWriter.write(mat);
+                frames++;
+            }
+            final long estimatedTime=System.currentTimeMillis() - startTime;
+            videoCapture.release();
+            videoWriter.release();
+            mat.release();
+
+
+
+
+            takePicture = false;  //imgcapture
 
         }
 
