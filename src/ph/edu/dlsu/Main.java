@@ -18,8 +18,6 @@ public class Main extends Application{
     private static final String WINDOW_TITLE = "Camera Viewer";
     public static final String MENU_TITLE = "menu";
 
-    private static final String introFilePath = "https://archive.org/details/test-mpeg";
-
     private static double displayWidth;
     private static double displayHeight;
 

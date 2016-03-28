@@ -4,21 +4,15 @@ import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import org.opencv.core.Mat;
-import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.videoio.VideoCapture;
-import org.opencv.videoio.VideoWriter;
-import org.opencv.videoio.Videoio;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
+    public int count = 1;
 
     @Override
     public Parent createCameraContent(){
@@ -86,40 +80,27 @@ public class Camera extends BaseCameraScene{
     public void onCameraFrame(Mat frame){
        // Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
 
+//        if (takePicture){
+//
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+//            String currentDateandTime = sdf.format(new Date());
+//            String fileName = currentDateandTime + ".png";
+//
+//            Imgcodecs.imwrite(fileName, frame);
+//
+//            takePicture = false;
+//
+//        }
         if (takePicture){
+            String fileName = "snap" + count + ".png";
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-            String currentDateandTime = sdf.format(new Date());
-            String fileName = currentDateandTime + ".png";
+            Imgcodecs.imwrite(fileName, frame);
 
-            Imgcodecs.imwrite(fileName, frame); //imgcapture
-
-
-            String url = null;
-            final String outputFile="output.avi";
-
-            //url = frame;
-
-            VideoCapture videoCapture = new VideoCapture(String.valueOf(frame));
-            final Size frameSize=new Size((int)videoCapture.get(Videoio.CAP_PROP_FRAME_WIDTH),(int)videoCapture.get(Videoio.CAP_PROP_FRAME_HEIGHT));
-            final FourCC fourCC=new FourCC("XVID");
-            VideoWriter videoWriter=new VideoWriter(outputFile,fourCC.toInt(),videoCapture.get(Videoio.CAP_PROP_FPS),frameSize,true);
-            final Mat mat=new Mat();
-            int frames = 0;
-            final long startTime=System.currentTimeMillis();
-            while (videoCapture.read(mat)) {
-                videoWriter.write(mat);
-                frames++;
-            }
-            final long estimatedTime=System.currentTimeMillis() - startTime;
-            videoCapture.release();
-            videoWriter.release();
-            mat.release();
-
-
-
-
-            takePicture = false;  //imgcapture
+            takePicture = false;
+            if(count <=20)
+                count++;
+            else
+                count = 1;
 
         }
 

@@ -36,23 +36,27 @@ public class ImageBox {
 
     private static final String photoViewerStyle = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\src\\ph\\edu\\dlsu\\css\\photo-viewer.css";
     //    private static final String testImagePath = "http://mikecann.co.uk/wp-content/uploads/2009/12/javafx_logo_color_1.jpg"; // For Loading Online Images
-    private static final String testImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
-    private static final String test2ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test3ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-21_10-58-18.png";  // For Loading Local Images
-    private static final String test4ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test5ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
-    private static final String test6ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-21_10-58-18.png";  // For Loading Local Images
-    private static final String test7ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
-    private static final String test8ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test9ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-21_10-58-18.png";  // For Loading Local Images
-    private static final String test10ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test11ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
-    private static final String test12ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test13ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
-    private static final String test14ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test15ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
-    private static final String test16ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-17_13-01-01.png";  // For Loading Local Images
-    private static final String test17ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\2016-03-16_22-55-16.png";  // For Loading Local Images
+
+    private static final String testImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap1.png";  // For Loading Local Images
+    private static final String test2ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap2.png";  // For Loading Local Images
+    private static final String test3ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap3.png";  // For Loading Local Images
+    private static final String test4ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap4.png";  // For Loading Local Images
+    private static final String test5ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap5.png";  // For Loading Local Images
+    private static final String test6ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap6.png";  // For Loading Local Images
+    private static final String test7ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap7.png";  // For Loading Local Images
+    private static final String test8ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap8.png";  // For Loading Local Images
+    private static final String test9ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap9.png";  // For Loading Local Images
+    private static final String test10ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap10.png";  // For Loading Local Images
+    private static final String test11ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap11.png";  // For Loading Local Images
+    private static final String test12ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap12.png";  // For Loading Local Images
+    private static final String test13ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap13.png";  // For Loading Local Images
+    private static final String test14ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap14.png";  // For Loading Local Images
+    private static final String test15ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap15.png";  // For Loading Local Images
+    private static final String test16ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap16.png";  // For Loading Local Images
+    private static final String test17ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap17.png";  // For Loading Local Images
+    private static final String test18ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap18.png";  // For Loading Local Images
+    private static final String test19ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap19.png";  // For Loading Local Images
+    private static final String test20ImagePath = "C:\\Users\\User\\OneDrive\\Documents\\DLSU\\5th Year 2nd Term\\ObjectpL\\Project\\CameraViewer-v-1-0\\snap20.png";  // For Loading Local Images
 
     private static final String CLOSE_BUTTON_ID = "close-button";
 
@@ -198,6 +202,9 @@ public class ImageBox {
             addImage(Paths.get(test15ImagePath).toUri().toURL().toString()); //For Loading Local Images
             addImage(Paths.get(test16ImagePath).toUri().toURL().toString()); //For Loading Local Images
             addImage(Paths.get(test17ImagePath).toUri().toURL().toString()); //For Loading Local Images
+            addImage(Paths.get(test18ImagePath).toUri().toURL().toString()); //For Loading Local Images
+            addImage(Paths.get(test19ImagePath).toUri().toURL().toString()); //For Loading Local Images
+            addImage(Paths.get(test20ImagePath).toUri().toURL().toString()); //For Loading Local Images
         } catch (Exception ex) {
             ex.printStackTrace();
         }
