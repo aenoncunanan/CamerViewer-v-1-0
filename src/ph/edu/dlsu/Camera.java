@@ -106,6 +106,12 @@ public class Camera extends BaseCameraScene{
             else
                 count = 1;
 
+            String imageCount = Integer.toString(count);
+            File file = new File("count.txt");
+            BufferedWriter out = new BufferedWriter(new FileWriter(file));
+            out.write(imageCount);
+            out.close();
+
         }
 
     }

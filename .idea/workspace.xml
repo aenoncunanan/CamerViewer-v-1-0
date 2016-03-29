@@ -3,15 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="3238cc46-9bcd-4cce-b648-633faf0057d1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/BaseCameraScene.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/BaseCameraScene.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Camera.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Camera.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Main.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox$1.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox$ButtonMove.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox$ButtonMove.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snap1.png" afterPath="$PROJECT_DIR$/snap1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java" />
     </list>
     <ignored path="CameraViewer-v-1-0.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +34,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1904">
+            <state relative-caret-position="1139">
               <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -46,39 +44,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2404#2462#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCameraScene.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BaseCameraScene.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            <state relative-caret-position="102">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageBox.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#17143#17193#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,10 +83,10 @@
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/css/asimov-font.css" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/CustomMenuItem.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/utils/VideoBox.java" />
-        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" />
-        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java" />
+        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java" />
+        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
       </list>
     </option>
   </component>
@@ -165,8 +137,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -186,8 +156,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CameraViewer-v-1-0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CameraViewer-v-1-0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dlsu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CameraViewer-v-1-0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CameraViewer-v-1-0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dlsu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -611,7 +623,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -747,7 +759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,7 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -855,7 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +977,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="23" column="41" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,8 +1016,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="344">
+          <caret line="224" column="53" selection-start-line="224" selection-start-column="53" selection-end-line="224" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#17143#17193#0" expanded="false" />
@@ -1018,19 +1025,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        <state relative-caret-position="497">
+          <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2404#2462#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
+        <state relative-caret-position="1139">
           <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1039,13 +1047,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2404#2462#0" expanded="false" />
           </folding>
         </state>
       </provider>

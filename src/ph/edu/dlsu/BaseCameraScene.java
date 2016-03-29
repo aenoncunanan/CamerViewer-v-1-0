@@ -39,10 +39,10 @@ public abstract class BaseCameraScene {
 
     public void startCamera(){
 
-//        this.capture.open(0);     //used for built-in camera
+        int maxCam = 5;
 
-// for loop was used to search for the available external camera
-        for (int index = 1; index < 100; index++){
+        //Search for external cameras!
+        for (int index = 1; index <= maxCam; index++){
 
             this.capture.open(index);
 
@@ -54,10 +54,35 @@ public abstract class BaseCameraScene {
 
                 this.timer = Executors.newSingleThreadScheduledExecutor();
                 this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
+
+                System.out.println("External camera at port " + index + " opened");
+
                 break;
             }
             else {
-                System.err.println("Failed to open the camera.");
+                System.err.println("Failed to open the external camera at port " + index);
+            }
+
+            //Open the built-in camera if external camera was not found!
+            if (index == maxCam){
+                this.capture.open(0);
+
+                if(this.capture.isOpened()){
+                    Runnable frameGrabber = () -> {
+                        Image imageToShow = grabFrame();
+                        currentFrame.setImage(imageToShow);
+                    };
+
+                    this.timer = Executors.newSingleThreadScheduledExecutor();
+                    this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
+
+                    System.out.println("Built-in camera opened");
+
+                    break;
+                }
+                else {
+                    System.err.println("Failed to open the built-in camera at port 0");
+                }
             }
 
         }
