@@ -9,10 +9,13 @@ import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
 
+import java.io.*;
+
 public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
-    public int count = 1;
+
+    int count = 1;
 
     @Override
     public Parent createCameraContent(){
@@ -77,7 +80,7 @@ public class Camera extends BaseCameraScene{
     }
 
     @Override
-    public void onCameraFrame(Mat frame){
+    public void onCameraFrame(Mat frame) throws IOException {
        // Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
 
 //        if (takePicture){
@@ -97,6 +100,7 @@ public class Camera extends BaseCameraScene{
             Imgcodecs.imwrite(fileName, frame);
 
             takePicture = false;
+
             if(count <=20)
                 count++;
             else

@@ -7,6 +7,7 @@ import org.opencv.core.Mat;
 import org.opencv.videoio.VideoCapture;
 import ph.edu.dlsu.utils.Utils;
 
+import java.io.IOException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -34,23 +35,31 @@ public abstract class BaseCameraScene {
 
     public abstract void createHMenu();
 
-    public abstract void onCameraFrame(Mat frame);
+    public abstract void onCameraFrame(Mat frame) throws IOException;
 
     public void startCamera(){
 
-        this.capture.open(0);
+//        this.capture.open(0);     //used for built-in camera
 
-        if(this.capture.isOpened()){
-            Runnable frameGrabber = () -> {
-                Image imageToShow = grabFrame();
-                currentFrame.setImage(imageToShow);
-            };
+// for loop was used to search for the available external camera
+        for (int index = 1; index < 100; index++){
 
-            this.timer = Executors.newSingleThreadScheduledExecutor();
-            this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
-        }
-        else {
-            System.err.println("Failed to open the camera.");
+            this.capture.open(index);
+
+            if(this.capture.isOpened()){
+                Runnable frameGrabber = () -> {
+                    Image imageToShow = grabFrame();
+                    currentFrame.setImage(imageToShow);
+                };
+
+                this.timer = Executors.newSingleThreadScheduledExecutor();
+                this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
+                break;
+            }
+            else {
+                System.err.println("Failed to open the camera.");
+            }
+
         }
 
     }
