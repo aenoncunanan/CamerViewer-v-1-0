@@ -15,7 +15,44 @@ public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
 
-    int count = 1;
+    int count = fileCount();
+
+    public int fileCount(){
+        String fileName = "imageCount.txt";
+
+        String line = null;
+
+        int imageCount = 1;
+
+        BufferedReader bufferedReader = null;
+
+        try {
+            FileReader fileReader = new FileReader(fileName);
+
+            bufferedReader = new BufferedReader(fileReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println("Read from file: " + line);
+                imageCount = Integer.parseInt(line);
+            }
+//            if(bufferedReader.readLine() == null){
+//                imageCount = 1;
+//            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file!");
+        } catch (IOException e) {
+            System.out.println("Error reading file!");
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+
+            }
+        }
+        return imageCount;
+    }
 
     @Override
     public Parent createCameraContent(){
@@ -101,13 +138,21 @@ public class Camera extends BaseCameraScene{
 
             takePicture = false;
 
-            if(count <=20)
-                count++;
+            System.out.println("Count from reader: " + count);
+
+            if(count <= 20) {
+                if (count == 20)
+                    count = 1;
+                else
+                    count++;
+
+                System.out.println("Count after processing: " + count);
+            }
             else
                 count = 1;
 
             String imageCount = Integer.toString(count);
-            File file = new File("count.txt");
+            File file = new File("imageCount.txt");
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
             out.write(imageCount);
             out.close();

@@ -39,9 +39,26 @@ public abstract class BaseCameraScene {
 
     public void startCamera(){
 
-        int maxCam = 5;
+//        //Accessing ipCameras
+////        this.capture.open("http://121.96.255.156:1024/?dummy=video.mjpeg");
+////        this.capture.open("http://208.42.203.54:8588/view/viewer_index.shtml?id=722?dummy=video.mjpg");
+//        this.capture.open("http://115.42.155.199/axis-cgi/mjpg/video.cgi?camera=4&resolution=352x288&1459247480335");
+//
+//        if(this.capture.isOpened()){
+//            Runnable frameGrabber = () -> {
+//                Image imageToShow = grabFrame();
+//                currentFrame.setImage(imageToShow);
+//            };
+//             this.timer = Executors.newSingleThreadScheduledExecutor();
+//            this.timer.scheduleAtFixedRate(frameGrabber, 0, 33, TimeUnit.MILLISECONDS);
+//        }
+//        else {
+//            System.err.println("Failed to open the ipCamera");
+//        }
 
         //Search for external cameras!
+        int maxCam = 5;
+
         for (int index = 1; index <= maxCam; index++){
 
             this.capture.open(index);
