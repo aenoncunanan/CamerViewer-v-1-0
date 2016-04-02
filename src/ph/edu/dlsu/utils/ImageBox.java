@@ -82,7 +82,7 @@ public class ImageBox {
     private static double sceneWidth;
     private static double sceneHeight;
 
-    public static void show(){
+    public static void show() {
 
         stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -182,7 +182,7 @@ public class ImageBox {
                         stage.getY()));
     }
 
-    private static void initializeImages(){
+    private static void initializeImages() {
         try {
             //addImage(testImagePath);    //For Loading Online Images
             addImage(Paths.get(test20ImagePath).toUri().toURL().toString()); //For Loading Local Images
