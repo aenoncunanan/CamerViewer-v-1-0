@@ -20,10 +20,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.opencv.core.Core;
-import ph.edu.dlsu.utils.ConfirmationBox;
-import ph.edu.dlsu.utils.ImageBox;
-import ph.edu.dlsu.utils.ScreenSize;
-import ph.edu.dlsu.utils.Utils;
+import ph.edu.dlsu.utils.*;
 
 public class Main extends Application {
 
@@ -42,6 +39,7 @@ public class Main extends Application {
         stage.setTitle("Green Screen: Login");                      //Name the title of the Login stage
         stage.setScene(logInScene);                                 //Set the scene for the Login stage
         stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+//        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
         stage.show();
     }
 
@@ -104,8 +102,10 @@ public class Main extends Application {
         grid.add(message, 1, 5);                                    //Set it at Column 1, Row 5
 
         //Program defined username and password
-        String userDefault = "greenarcher";
-        String passDefault = "accessinggreenscreen";
+//        String userDefault = "greenarcher";
+//        String passDefault = "accessinggreenscreen";
+        String userDefault = "admin";
+        String passDefault = "123";
 
         btn.setOnAction(event -> {
             message.setFill(Color.FIREBRICK);                       //Set the color of the message
@@ -116,7 +116,7 @@ public class Main extends Application {
                 //Check if the username and password inputted by the user matched the  program defined username and password
                 if (user.getText().equals(userDefault) && pass.getText().equals(passDefault)) {
                     message.setText("Welcome " + user.getText());                   //Prompt a message if the inputs are correct
-                                    onHome();                                       //Enter the main program
+                    onHome();                                                       //Enter the main program
                     user.clear();                                                   //Empty the username text field
                     pass.clear();                                                   //Empty the password text field
                     message.setText(null);                                          //Empty the message
@@ -139,9 +139,12 @@ public class Main extends Application {
 
     }
 
+    //Create the stage for the Login when Logout button was pressed
     public static void onLogIn(){
-        stage.setTitle("Green Screen: Login");
-        stage.setScene(logInScene);
+        stage.setTitle("Green Screen: Login");                      //Name the title of the Login stage
+        stage.setScene(logInScene);                                 //Set the scene for the Login stage
+        stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
     }
 
     //Create the stage for the Home scene
@@ -150,8 +153,9 @@ public class Main extends Application {
         stage.setTitle("Green Screen: Home");                       //Name the title of the Home stage
         stage.setScene(
                 new Scene(home.main(), displayWidth, displayHeight)
-        );                                                          //Set the scene for the Login stage
+        );                                                          //Set the scene for the Home stage
         stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
     }
 
     //Create the stage for the Camera scene
@@ -163,11 +167,12 @@ public class Main extends Application {
                         displayWidth, displayHeight)
         );                                                          //Set the scene for the Camera stage
         stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
     }
 
     //Method that will show 10 latest video clips recorded by the program
     public static void onVideoClips() {
-
+            VideoBox.show();
     }
 
     //Method that will show 20 latest snapshots captured by the program

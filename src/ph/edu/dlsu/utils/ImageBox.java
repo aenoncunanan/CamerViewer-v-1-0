@@ -139,6 +139,7 @@ public class ImageBox {
         );
 
         stage.setFullScreen(true);
+        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
         stage.show();
 
     }
@@ -285,8 +286,8 @@ public class ImageBox {
         Node closeXmark = new Text(2, 4, "X");
         closeButton.translateXProperty()
                 .bind(scene.widthProperty()
-                        .subtract(15));
-        closeButton.setTranslateY(10);
+                        .subtract(140));
+        closeButton.setTranslateY(15);
         closeButton.getChildren()
                 .addAll(closeBackground, closeXmark);
 
