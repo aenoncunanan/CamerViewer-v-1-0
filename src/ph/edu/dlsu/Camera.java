@@ -4,7 +4,11 @@ import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import org.opencv.core.Mat;
+import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.videoio.VideoCapture;
+import org.opencv.videoio.VideoWriter;
+import org.opencv.videoio.Videoio;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
@@ -32,12 +36,9 @@ public class Camera extends BaseCameraScene{
             bufferedReader = new BufferedReader(fileReader);
 
             while ((line = bufferedReader.readLine()) != null) {
-                System.out.println("Read from file: " + line);
                 imageCount = Integer.parseInt(line);
             }
-//            if(bufferedReader.readLine() == null){
-//                imageCount = 1;
-//            }
+
         } catch (FileNotFoundException ex) {
             System.out.println("Unable to open file!");
         } catch (IOException e) {
@@ -76,7 +77,6 @@ public class Camera extends BaseCameraScene{
         currentFrame.setTranslateY(0);
         rootNode.getChildren().add(currentFrame);
         startCamera();
-
         createHMenu();
 
         rootNode.getChildren().add(menuBox);
@@ -131,6 +131,34 @@ public class Camera extends BaseCameraScene{
 //            takePicture = false;
 //
 //        }
+
+        String url = null;
+
+        final String outputFile="vidClip.avi";
+
+        url = String.valueOf(frame);
+
+        VideoCapture videoCapture = new VideoCapture(url);
+        final Size frameSize = new Size((int)videoCapture.get(Videoio.CAP_PROP_FRAME_WIDTH),(int)videoCapture.get(Videoio.CAP_PROP_FRAME_HEIGHT));
+        final FourCC fourCC = new FourCC("XVID");
+        VideoWriter videoWriter=new VideoWriter(outputFile,fourCC.toInt(),videoCapture.get(Videoio.CAP_PROP_FPS),frameSize,true);
+        final Mat mat = new Mat();
+        int frames = 0;
+//        final long startTime = System.currentTimeMillis();
+        System.out.println("number of frames: " + frames);
+//        System.out.println("start time: " + startTime);
+
+        while (videoCapture.read(mat)) {
+            videoWriter.write(mat);
+            frames++;
+        }
+
+//        final long estimatedTime = System.currentTimeMillis() - startTime;
+//        System.out.println("estimated time: " + estimatedTime);
+        videoCapture.release();
+        videoWriter.release();
+        mat.release();
+
         if (takePicture){
             String fileName = "snap" + count + ".png";
 
@@ -138,15 +166,11 @@ public class Camera extends BaseCameraScene{
 
             takePicture = false;
 
-            System.out.println("Count from reader: " + count);
-
             if(count <= 20) {
                 if (count == 20)
                     count = 1;
                 else
                     count++;
-
-                System.out.println("Count after processing: " + count);
             }
             else
                 count = 1;
