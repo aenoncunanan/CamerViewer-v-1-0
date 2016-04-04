@@ -6,9 +6,7 @@ import javafx.scene.layout.Pane;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.VideoWriter;
-import org.opencv.videoio.Videoio;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
@@ -18,6 +16,9 @@ import java.io.*;
 public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
+
+    private VideoWriter videoWriter;
+    private int frames;
 
     int count = fileCount();
 
@@ -57,6 +58,8 @@ public class Camera extends BaseCameraScene{
 
     @Override
     public Parent createCameraContent(){
+        initializeCapture();
+
         ScreenSize screen = new ScreenSize();
         displayWidth = screen.getDisplayWidth();
         displayHeight = screen.getDisplayHeight();
@@ -82,6 +85,13 @@ public class Camera extends BaseCameraScene{
         rootNode.getChildren().add(menuBox);
 
         return rootNode;
+    }
+
+    private void initializeCapture() {
+        final String outputFile="vidClip.avi";
+        int fourCC = VideoWriter.fourcc('i','y','u','v');
+        videoWriter = new VideoWriter(outputFile,fourCC,20,new Size(frameWidth, frameHeight),true);
+        frames = 0;
     }
 
     @Override
@@ -124,46 +134,16 @@ public class Camera extends BaseCameraScene{
 
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
-       // Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
-
-//        if (takePicture){
-//
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-//            String currentDateandTime = sdf.format(new Date());
-//            String fileName = currentDateandTime + ".png";
-//
-//            Imgcodecs.imwrite(fileName, frame);
-//
-//            takePicture = false;
-//
-//        }
-
-        String url = null;
-
-        final String outputFile="vidClip.avi";
-
-        url = String.valueOf(frame);
-
-        VideoCapture videoCapture = new VideoCapture(url);
-        final Size frameSize = new Size((int)videoCapture.get(Videoio.CAP_PROP_FRAME_WIDTH),(int)videoCapture.get(Videoio.CAP_PROP_FRAME_HEIGHT));
-        final FourCC fourCC = new FourCC("XVID");
-        VideoWriter videoWriter=new VideoWriter(outputFile,fourCC.toInt(),videoCapture.get(Videoio.CAP_PROP_FPS),frameSize,true);
-        final Mat mat = new Mat();
-        int frames = 0;
 //        final long startTime = System.currentTimeMillis();
         System.out.println("number of frames: " + frames);
 //        System.out.println("start time: " + startTime);
 
-        while (videoCapture.read(mat)) {
-            videoWriter.write(mat);
-            frames++;
-        }
+        videoWriter.write(frame);
+        frames++;
 
 //        final long estimatedTime = System.currentTimeMillis() - startTime;
 //        System.out.println("estimated time: " + estimatedTime);
-        videoCapture.release();
-        videoWriter.release();
-        mat.release();
+
 
         if (takePicture){
             String fileName = "snap" + count + ".png";
@@ -189,6 +169,14 @@ public class Camera extends BaseCameraScene{
 
         }
 
+    }
+
+    @Override
+    public void stopCamera(){
+        if (videoWriter != null)
+            videoWriter.release();
+        //mat.release();
+        super.stopCamera();
     }
 
 }
