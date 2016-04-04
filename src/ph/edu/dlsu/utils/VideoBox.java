@@ -1,11 +1,15 @@
 package ph.edu.dlsu.utils;
 
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
+import javafx.concurrent.Task;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,9 +25,14 @@ import javafx.util.Duration;
 
 import java.net.MalformedURLException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class VideoBox {
     private static final String buttonPanelStyle = "src//ph//edu//dlsu//css//playing-video.css";
+
     private static  final String filePath = "GameofThronesTheme.mp4";
     private static String url = null;
     static {
@@ -34,6 +43,15 @@ public class VideoBox {
             System.out.println("Couldn't load video file");
         }
     }
+
+    private static final List<String> videoFiles = new ArrayList<>();
+    private static int currentIndex = -1;
+    public enum ButtonMove {
+        NEXT, PREV
+    };
+    private static Group caption;
+    private static ImageView currentImageView;
+    private static AtomicBoolean loading = new AtomicBoolean();
 
     private static final String MEDIA_VIEW_ID = "media-view";
     private static final String STOP_BUTTON_ID = "stop-button";
@@ -73,6 +91,8 @@ public class VideoBox {
 
         // Initialize stage to have fullscreen ability
         initFullScreenMode();
+
+        initializeImages();
 
         // Create a media view to display video
         MediaView mediaView = createMediaView();
@@ -154,6 +174,54 @@ public class VideoBox {
                         stage.getY()));
     }
 
+    private static void initializeImages() {
+        try {
+            addImage(Paths.get(filePath).toUri().toURL().toString()); //For Loading Local Images
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        if (currentIndex > -1) {
+            loadImage(videoFiles.get(currentIndex));
+        }
+    }
+
+
+    private static void addImage(String url) {
+        if (isValidImageFile(url)) {
+            currentIndex += 1;
+            videoFiles.add(currentIndex, url);
+        }
+    }
+
+    private static void loadImage(String url) {
+        if (!loading.getAndSet(true)) {
+            Task loadImage = createWorker(url);
+            new Thread(loadImage).start();
+        }
+    }
+
+    private static boolean isValidImageFile(String url) {
+        List<String> imgTypes = Arrays.asList(".avi", ".mp4", ".mpg", ".mpeg", ".mov");
+        return imgTypes.stream()
+                .anyMatch(url::endsWith);
+    }
+
+    private static Task createWorker(final String url) {
+        return new Task() {
+            @Override
+            protected Object call() throws Exception {
+
+                Image image = new Image(url, false);
+                Platform.runLater(() -> {
+
+                    currentImageView.setImage(image);
+                    loading.set(false);
+                });
+                return true;
+            }
+        };
+    }
 
     /**
      * A simple rectangular area as the surface of the app.
@@ -269,6 +337,8 @@ public class VideoBox {
      *
      * @return Node representing a close button.
      */
+
+
     private static Node createCloseButton() {
         Scene scene = stage.getScene();
         Group closeButton = new Group();

@@ -37,26 +37,26 @@ public class ImageBox {
     private static final String photoViewerStyle = "src//ph//edu//dlsu//css//photo-viewer.css";
     //    private static final String testImagePath = "http://mikecann.co.uk/wp-content/uploads/2009/12/javafx_logo_color_1.jpg"; // For Loading Online Images
 
-    private static final String testImagePath = "snap1.png";  // For Loading Local Images
-    private static final String test2ImagePath = "snap2.png";  // For Loading Local Images
-    private static final String test3ImagePath = "snap3.png";  // For Loading Local Images
-    private static final String test4ImagePath = "snap4.png";  // For Loading Local Images
-    private static final String test5ImagePath = "snap5.png";  // For Loading Local Images
-    private static final String test6ImagePath = "snap6.png";  // For Loading Local Images
-    private static final String test7ImagePath = "snap7.png";  // For Loading Local Images
-    private static final String test8ImagePath = "snap8.png";  // For Loading Local Images
-    private static final String test9ImagePath = "snap9.png";  // For Loading Local Images
-    private static final String test10ImagePath = "snap10.png";  // For Loading Local Images
-    private static final String test11ImagePath = "snap11.png";  // For Loading Local Images
-    private static final String test12ImagePath = "snap12.png";  // For Loading Local Images
-    private static final String test13ImagePath = "snap13.png";  // For Loading Local Images
-    private static final String test14ImagePath = "snap14.png";  // For Loading Local Images
-    private static final String test15ImagePath = "snap15.png";  // For Loading Local Images
-    private static final String test16ImagePath = "snap16.png";  // For Loading Local Images
-    private static final String test17ImagePath = "snap17.png";  // For Loading Local Images
-    private static final String test18ImagePath = "snap18.png";  // For Loading Local Images
-    private static final String test19ImagePath = "snap19.png";  // For Loading Local Images
-    private static final String test20ImagePath = "snap20.png";  // For Loading Local Images
+    private static final String testImagePath = "Shots//Snaps//snap1.png";  // For Loading Local Images
+    private static final String test2ImagePath = "Shots//Snaps//snap2.png";  // For Loading Local Images
+    private static final String test3ImagePath = "Shots//Snaps//snap3.png";  // For Loading Local Images
+    private static final String test4ImagePath = "Shots//Snaps//snap4.png";  // For Loading Local Images
+    private static final String test5ImagePath = "Shots//Snaps//snap5.png";  // For Loading Local Images
+    private static final String test6ImagePath = "Shots//Snaps//snap6.png";  // For Loading Local Images
+    private static final String test7ImagePath = "Shots//Snaps//snap7.png";  // For Loading Local Images
+    private static final String test8ImagePath = "Shots//Snaps//snap8.png";  // For Loading Local Images
+    private static final String test9ImagePath = "Shots//Snaps//snap9.png";  // For Loading Local Images
+    private static final String test10ImagePath = "Shots//Snaps//snap10.png";  // For Loading Local Images
+    private static final String test11ImagePath = "Shots//Snaps//snap11.png";  // For Loading Local Images
+    private static final String test12ImagePath = "Shots//Snaps//snap12.png";  // For Loading Local Images
+    private static final String test13ImagePath = "Shots//Snaps//snap13.png";  // For Loading Local Images
+    private static final String test14ImagePath = "Shots//Snaps//snap14.png";  // For Loading Local Images
+    private static final String test15ImagePath = "Shots//Snaps//snap15.png";  // For Loading Local Images
+    private static final String test16ImagePath = "Shots//Snaps//snap16.png";  // For Loading Local Images
+    private static final String test17ImagePath = "Shots//Snaps//snap17.png";  // For Loading Local Images
+    private static final String test18ImagePath = "Shots//Snaps//snap18.png";  // For Loading Local Images
+    private static final String test19ImagePath = "Shots//Snaps//snap19.png";  // For Loading Local Images
+    private static final String test20ImagePath = "Shots//Snaps//snap20.png";  // For Loading Local Images
 
     private static final String CLOSE_BUTTON_ID = "close-button";
 
@@ -380,43 +380,6 @@ public class ImageBox {
                         .subtract(rightPadding));
         tickerArea.getChildren().add(tickerRect);
 
-//        FlowPane tickerContent = new FlowPane();
-//
-//        Text news = new Text();
-//        news.setText("JavaFX 8.0 News! | 85 and sunny | :)");
-//        news.setFill(Color.DARKGREY);
-//        news.setFont(Font.font("Times New Roman", FontWeight.SEMI_BOLD, 20));
-//
-//        tickerContent.getChildren().add(news);
-//        DoubleProperty centerContentY = new SimpleDoubleProperty();
-//        centerContentY.bind(
-//                clipRegion.heightProperty()
-//                        .divide(2)
-//                        .subtract(tickerContent.heightProperty()
-//                                .divide(2)));
-//        tickerContent.translateYProperty().bind(centerContentY);
-//        tickerArea.getChildren().add(tickerContent);
-//
-//        TranslateTransition tickerScroller = new TranslateTransition();
-//        tickerScroller.setNode(tickerContent);
-//        tickerScroller.setDuration(
-//                Duration.millis(scene.getWidth() * 40));
-//        tickerScroller.fromXProperty()
-//                .bind(scene.widthProperty());
-//        tickerScroller.toXProperty()
-//                .bind(tickerContent.widthProperty()
-//                        .negate());
-//
-//
-//        tickerScroller.setOnFinished((ActionEvent ae) -> {
-//            tickerScroller.stop();
-//            tickerScroller.setDuration(
-//                    Duration.millis(scene.getWidth() * 40));
-//            tickerScroller.playFromStart();
-//        });
-//
-//
-//        stage.setOnShown(windowEvent -> tickerScroller.play());
         return tickerArea;
     }
 

@@ -23,7 +23,7 @@ public class Camera extends BaseCameraScene{
     int count = fileCount();
 
     public int fileCount(){
-        String fileName = "imageCount.txt";
+        String fileName = "Shots/Snaps/imageCount.txt";
 
         String line = null;
 
@@ -88,7 +88,7 @@ public class Camera extends BaseCameraScene{
     }
 
     private void initializeCapture() {
-        final String outputFile="vidClip.avi";
+        final String outputFile="Shots/VidClips/vidClip.avi";
         int fourCC = VideoWriter.fourcc('i','y','u','v');
         videoWriter = new VideoWriter(outputFile,fourCC,20,new Size(frameWidth, frameHeight),true);
         frames = 0;
@@ -148,7 +148,7 @@ public class Camera extends BaseCameraScene{
         if (takePicture){
             String fileName = "snap" + count + ".png";
 
-            Imgcodecs.imwrite(fileName, frame);
+            Imgcodecs.imwrite("Shots/Snaps/" + fileName, frame);
 
             takePicture = false;
 
@@ -162,7 +162,7 @@ public class Camera extends BaseCameraScene{
                 count = 1;
 
             String imageCount = Integer.toString(count);
-            File file = new File("imageCount.txt");
+            File file = new File("Shots/Snaps/imageCount.txt");
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
             out.write(imageCount);
             out.close();
@@ -175,7 +175,6 @@ public class Camera extends BaseCameraScene{
     public void stopCamera(){
         if (videoWriter != null)
             videoWriter.release();
-        //mat.release();
         super.stopCamera();
     }
 
