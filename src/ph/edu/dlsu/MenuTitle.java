@@ -11,17 +11,11 @@ public class MenuTitle extends StackPane {
 
     public MenuTitle(String name){
 
-//        Rectangle bg = new Rectangle(240,60);
-//        bg.setStroke(Color.WHITE);
-//        bg.setStrokeWidth(2);
-//        bg.setFill(null);
-
         Text text = new Text(name);
         text.setFill(Color.web("#009fe0"));
         text.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 100));
 
         setAlignment(Pos.CENTER);
-//        getChildren().addAll(bg, text);
         getChildren().addAll(text);
 
     }

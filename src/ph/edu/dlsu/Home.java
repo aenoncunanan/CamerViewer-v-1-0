@@ -13,7 +13,7 @@ public class Home {
     double displayWidth = screen.getDisplayWidth();
     double displayHeight = screen.getDisplayHeight();
 
-    public Parent main() {
+    public Parent main(){
 
         Pane rootNode = new Pane();
         rootNode.setPrefSize(displayWidth, displayHeight);
@@ -40,6 +40,7 @@ public class Home {
         final CustomMenuItem videoclips = new CustomMenuItem("video clips");
         final CustomMenuItem snapshots = new CustomMenuItem("snapshots");
         final CustomMenuItem logout = new CustomMenuItem("logout");
+        final CustomMenuItem setting = new CustomMenuItem("setting");
         final CustomMenuItem exit = new CustomMenuItem("exit");
 
 
@@ -59,11 +60,15 @@ public class Home {
             Main.onLogIn();
         });
 
+        setting.setOnMouseClicked(e -> {
+            Main.onSetting();
+        });
+
         exit.setOnMouseClicked(e -> {
             Main.onExit();
         });
 
-        menuBox = new MenuVBox(camera, videoclips, snapshots, logout, exit);
+        menuBox = new MenuVBox(camera, videoclips, snapshots, logout, setting, exit);
         menuBox.setTranslateX(200);
         menuBox.setTranslateY(300);
 

@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class VideoBox {
     private static final String buttonPanelStyle = "src//ph//edu//dlsu//css//playing-video.css";
 
-    private static  final String filePath = "GameofThronesTheme.mp4";
+    private static  final String filePath = "Shots//VidClips//GameofThronesTheme.mp4";
     private static String url = null;
     static {
         try {

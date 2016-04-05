@@ -7,7 +7,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -22,6 +21,9 @@ import javafx.stage.Stage;
 import org.opencv.core.Core;
 import ph.edu.dlsu.utils.*;
 
+import java.awt.*;
+import java.io.*;
+
 public class Main extends Application {
 
     private static double displayWidth;
@@ -29,6 +31,13 @@ public class Main extends Application {
 
     static Stage stage;
     static Scene logInScene;
+
+    //Program defined username and password
+    static String userDefault = "admin";
+    static String passDefault = "123";
+
+    public Main() throws IOException, FontFormatException {
+    }
 
     //Create the stage for the LogIn screen
     @Override
@@ -51,9 +60,12 @@ public class Main extends Application {
     }
 
     //Create the contents of the Login scene
-    private Parent createLogInContent() {
+    private Parent createLogInContent() throws IOException {
         Pane rootNode = new Pane();
         rootNode.setPrefSize(displayWidth, displayHeight);
+
+        //Get the User's Settings
+        getUser();
 
         //Set the background image
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Right.png", displayWidth, displayHeight);
@@ -76,12 +88,18 @@ public class Main extends Application {
         grid.add(hbBtn, 1, 4);                                      //Set it at Column 1, Row 4
 
         //Create new text for welcome
+//        Text scenetitle = new Text("Welcome!");
+//        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+//        grid.add(scenetitle, 0, 0, 2, 1);
         Text scenetitle = new Text("Welcome!");
-        scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+        scenetitle.setFont(Font.font("Asimov", FontWeight.NORMAL, 55));
+        scenetitle.setFill(Color.web("#009fe0"));
         grid.add(scenetitle, 0, 0, 2, 1);
 
         //Create a new label for the username
-        Label userName = new Label("Username: ");
+        Text userName = new Text("Username: ");
+        userName.setFont(Font.font("Asimov", FontWeight.NORMAL, 15));
+        userName.setFill(Color.web("#2c3e50"));
         grid.add(userName, 0, 1);                                   //Set it at Column 0, Row 1
 
         //Create a new Text field for the user's input
@@ -90,7 +108,9 @@ public class Main extends Application {
         grid.add(user, 1, 1);                                       //Set it at Column 1, Row 1
 
         //Create a new label for the password
-        Label pw = new Label("Password: ");
+        Text pw = new Text("Password: ");
+        pw.setFont(Font.font("Asimov", FontWeight.NORMAL, 15));
+        pw.setFill(Color.web("#2c3e50"));
         grid.add(pw, 0, 2);                                         //Set it at Column 0, Row 2
 
         //Create a new Text field for the user's input
@@ -101,11 +121,12 @@ public class Main extends Application {
         final Text message = new Text();                            //Create a message when sign in button is pressed
         grid.add(message, 1, 5);                                    //Set it at Column 1, Row 5
 
-        //Program defined username and password
-//        String userDefault = "greenarcher";
-//        String passDefault = "accessinggreenscreen";
-        String userDefault = "admin";
-        String passDefault = "123";
+        File userFile = new File("setting/userFile.txt");
+        BufferedWriter outFile = new BufferedWriter(new FileWriter(userFile));
+        outFile.write(userDefault);
+        outFile.newLine();
+        outFile.write(passDefault);
+        outFile.close();
 
         btn.setOnAction(event -> {
             message.setFill(Color.FIREBRICK);                       //Set the color of the message
@@ -141,6 +162,8 @@ public class Main extends Application {
 
     //Create the stage for the Login when Logout button was pressed
     public static void onLogIn(){
+        getUser();                                                  //Get the User's Settings
+
         stage.setTitle("Green Screen: Login");                      //Name the title of the Login stage
         stage.setScene(logInScene);                                 //Set the scene for the Login stage
         stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
@@ -148,7 +171,9 @@ public class Main extends Application {
     }
 
     //Create the stage for the Home scene
-    public static void onHome() {
+    public static void onHome(){
+        getUser();                                                  //Get the User's Settings
+
         Home home = new Home();
         stage.setTitle("Green Screen: Home");                       //Name the title of the Home stage
         stage.setScene(
@@ -180,6 +205,16 @@ public class Main extends Application {
         ImageBox.show();
     }
 
+    public static void onSetting() {
+        Setting setting = new Setting();                            //Name the title of the Camera stage
+        stage.setTitle("Green Screen: Setting");
+        stage.setScene(
+                new Scene(setting.main(), displayWidth, displayHeight)
+        );                                                          //Set the scene for the Setting stage
+        stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+    }
+
     //Exit prompt and action
     public static boolean onExit() {
 
@@ -194,6 +229,38 @@ public class Main extends Application {
         }
 
         return confirmQuit;                                           //Return the boolean value
+    }
+
+    //Get User Settings
+    public static void getUser() {
+        //Get the User's Settings
+        String fileName = "setting/userFile.txt";
+        String line = null;
+        int counter = 0;
+        BufferedReader bufferedReader = null;
+        try {
+            FileReader fileReader = new FileReader(fileName);
+            bufferedReader = new BufferedReader(fileReader);
+            while ((line = bufferedReader.readLine()) != null) {
+                if (counter == 0) {
+                    userDefault = line;
+                } else if (counter == 1) {
+                    passDefault = line;
+                }
+                counter++;
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("Unable to open file!");
+        } catch (IOException e) {
+            System.out.println("Error reading file!");
+        } finally {
+            try {
+                if (bufferedReader != null) {
+                    bufferedReader.close();
+                }
+            } catch (IOException e) {
+            }
+        }
     }
 
     //Program will will run this first!

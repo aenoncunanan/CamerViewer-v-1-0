@@ -20,9 +20,44 @@ public class Camera extends BaseCameraScene{
     private VideoWriter videoWriter;
     private int frames;
 
-    int count = fileCount();
+    int imageCount = imageCount();
+    int videoCount = videoCount();
 
-    public int fileCount(){
+    public int videoCount(){
+        String fileName = "Shots/VidClips/videoCount.txt";
+
+        String line = null;
+
+        int videoCount = 1;
+
+        BufferedReader bufferedReader = null;
+
+        try {
+            FileReader fileReader = new FileReader(fileName);
+
+            bufferedReader = new BufferedReader(fileReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                videoCount = Integer.parseInt(line);
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to open file!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bufferedReader != null){
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+
+                }
+            }
+        }
+        return videoCount;
+    }
+
+    public int imageCount(){
         String fileName = "Shots/Snaps/imageCount.txt";
 
         String line = null;
@@ -58,7 +93,11 @@ public class Camera extends BaseCameraScene{
 
     @Override
     public Parent createCameraContent(){
-        initializeCapture();
+        try {
+            initializeCapture();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ScreenSize screen = new ScreenSize();
         displayWidth = screen.getDisplayWidth();
@@ -87,11 +126,21 @@ public class Camera extends BaseCameraScene{
         return rootNode;
     }
 
-    private void initializeCapture() {
-        final String outputFile="Shots/VidClips/vidClip.avi";
-        int fourCC = VideoWriter.fourcc('i','y','u','v');
-        videoWriter = new VideoWriter(outputFile,fourCC,20,new Size(frameWidth, frameHeight),true);
+    private void initializeCapture() throws IOException{
+        final String outputFile = "Shots/VidClips/vid" + videoCount + ".avi";
+        int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
+        videoWriter = new VideoWriter(outputFile, fourCC, 20, new Size(frameWidth, frameHeight), true);
         frames = 0;
+//        videoCount++;
+
+        String videoCount = Integer.toString(this.videoCount);
+        File file = new File("Shots/VidClips/videoCount.txt");
+        BufferedWriter out = new BufferedWriter(new FileWriter(file));
+        out.write(videoCount);
+        out.close();
+
+//        System.out.println("video count: " + videoCount);
+
     }
 
     @Override
@@ -134,34 +183,36 @@ public class Camera extends BaseCameraScene{
 
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
-//        final long startTime = System.currentTimeMillis();
-        System.out.println("number of frames: " + frames);
-//        System.out.println("start time: " + startTime);
 
-        videoWriter.write(frame);
-        frames++;
-
-//        final long estimatedTime = System.currentTimeMillis() - startTime;
-//        System.out.println("estimated time: " + estimatedTime);
-
+//        if (frames >= 0 && frames < 20) {
+//            System.out.println(frames);
+            videoWriter.write(frame);
+            frames++;
+//        }else{
+//            System.out.println("videoCount: " + videoCount);
+//            if(videoCount > 10){
+//                videoCount = 1;
+//            }
+//            initializeCapture();
+//        }
 
         if (takePicture){
-            String fileName = "snap" + count + ".png";
+            String fileName = "snap" + imageCount + ".png";
 
             Imgcodecs.imwrite("Shots/Snaps/" + fileName, frame);
 
             takePicture = false;
 
-            if(count <= 20) {
-                if (count == 20)
-                    count = 1;
+            if(imageCount <= 20) {
+                if (imageCount == 20)
+                    imageCount = 1;
                 else
-                    count++;
+                    imageCount++;
             }
             else
-                count = 1;
+                imageCount = 1;
 
-            String imageCount = Integer.toString(count);
+            String imageCount = Integer.toString(this.imageCount);
             File file = new File("Shots/Snaps/imageCount.txt");
             BufferedWriter out = new BufferedWriter(new FileWriter(file));
             out.write(imageCount);
