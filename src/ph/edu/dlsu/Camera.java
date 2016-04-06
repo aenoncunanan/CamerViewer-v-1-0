@@ -127,20 +127,19 @@ public class Camera extends BaseCameraScene{
     }
 
     private void initializeCapture() throws IOException{
-        final String outputFile = "Shots/VidClips/vid" + videoCount + ".avi";
+        frameHeight = 0;
+        frameWidth = 0;
+        String outputFile = "Shots/VidClips/vid" + videoCount + ".avi";
         int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
-        videoWriter = new VideoWriter(outputFile, fourCC, 20, new Size(frameWidth, frameHeight), true);
+        videoWriter = new VideoWriter(outputFile, fourCC, 20, new Size(frameWidth/2, frameHeight/2), true);
         frames = 0;
-//        videoCount++;
+        videoCount++;
 
         String videoCount = Integer.toString(this.videoCount);
         File file = new File("Shots/VidClips/videoCount.txt");
         BufferedWriter out = new BufferedWriter(new FileWriter(file));
         out.write(videoCount);
         out.close();
-
-//        System.out.println("video count: " + videoCount);
-
     }
 
     @Override
@@ -184,17 +183,18 @@ public class Camera extends BaseCameraScene{
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
 
-//        if (frames >= 0 && frames < 20) {
-//            System.out.println(frames);
+        if (frames >= 0 && frames < 1200) {
+            System.out.println(frames);
             videoWriter.write(frame);
             frames++;
-//        }else{
-//            System.out.println("videoCount: " + videoCount);
-//            if(videoCount > 10){
-//                videoCount = 1;
-//            }
-//            initializeCapture();
-//        }
+        }else{
+            System.out.println("videoCount: " + videoCount);
+            videoWriter.release();
+            if(videoCount > 10){
+                videoCount = 1;
+            }
+            initializeCapture();
+        }
 
         if (takePicture){
             String fileName = "snap" + imageCount + ".png";
