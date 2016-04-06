@@ -13,6 +13,8 @@ import ph.edu.dlsu.utils.Utils;
 
 import java.io.*;
 
+import static org.opencv.videoio.Videoio.VIDEOWRITER_PROP_QUALITY;
+
 public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
@@ -129,9 +131,11 @@ public class Camera extends BaseCameraScene{
     private void initializeCapture() throws IOException{
         frameHeight = 0;
         frameWidth = 0;
+        int fps = 10;
         String outputFile = "Shots/VidClips/vid" + videoCount + ".avi";
         int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
-        videoWriter = new VideoWriter(outputFile, fourCC, 20, new Size(frameWidth/2, frameHeight/2), true);
+        videoWriter = new VideoWriter(outputFile, fourCC, fps, new Size(frameWidth/2, frameHeight/2), true);
+        videoWriter.set(VIDEOWRITER_PROP_QUALITY, 1);
         frames = 0;
         videoCount++;
 
@@ -183,7 +187,7 @@ public class Camera extends BaseCameraScene{
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
 
-        if (frames >= 0 && frames < 1200) {
+        if (frames >= 0 && frames < 600) {
             System.out.println(frames);
             videoWriter.write(frame);
             frames++;
