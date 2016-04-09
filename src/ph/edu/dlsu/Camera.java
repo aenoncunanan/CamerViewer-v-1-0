@@ -13,8 +13,6 @@ import ph.edu.dlsu.utils.Utils;
 
 import java.io.*;
 
-import static org.opencv.videoio.Videoio.VIDEOWRITER_PROP_QUALITY;
-
 public class Camera extends BaseCameraScene{
 
     private boolean takePicture = false;
@@ -131,11 +129,19 @@ public class Camera extends BaseCameraScene{
     private void initializeCapture() throws IOException{
         frameHeight = 0;
         frameWidth = 0;
-        int fps = 10;
-        String outputFile = "Shots/VidClips/vid" + videoCount + ".avi";
+        int fps = 20; //Lower value means slow motion; Higher value means fast motion; value is equal to minute in real time
+
+        String outputFile = "Shots/VidClips/vidClip" + videoCount + ".avi";
         int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
-        videoWriter = new VideoWriter(outputFile, fourCC, fps, new Size(frameWidth/2, frameHeight/2), true);
-        videoWriter.set(VIDEOWRITER_PROP_QUALITY, 1);
+
+        videoWriter = new VideoWriter(outputFile, fourCC, fps, new Size(frameWidth, frameHeight), true);
+
+        if (!videoWriter.isOpened()){
+            System.out.println("Unable to record a video!");
+        }
+
+        System.out.println("videoCount: " + videoCount);
+
         frames = 0;
         videoCount++;
 
@@ -187,12 +193,11 @@ public class Camera extends BaseCameraScene{
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
 
-        if (frames >= 0 && frames < 600) {
+        if (frames >= 0 && frames < 1200) { //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
             System.out.println(frames);
             videoWriter.write(frame);
             frames++;
         }else{
-            System.out.println("videoCount: " + videoCount);
             videoWriter.release();
             if(videoCount > 10){
                 videoCount = 1;

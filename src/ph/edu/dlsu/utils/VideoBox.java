@@ -1,15 +1,11 @@
 package ph.edu.dlsu.utils;
 
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
-import javafx.concurrent.Task;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Slider;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -23,98 +19,29 @@ import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class VideoBox {
-    private static final String buttonPanelStyle = "src//ph//edu//dlsu//css//playing-video.css";
 
-    private static final String testVideoPath = "Shots//Snaps//vid1.avi";  // For Loading Local Images
-    private static final String test2VideoPath = "Shots//Snaps//vid2.avi";  // For Loading Local Images
-    private static final String test3VideoPath = "Shots//Snaps//vid3.avi";  // For Loading Local Images
-    private static final String test4VideoPath = "Shots//Snaps//vid4.avi";  // For Loading Local Images
-    private static final String test5VideoPath = "Shots//Snaps//vid5.avi";  // For Loading Local Images
-    private static final String test6VideoPath = "Shots//Snaps//vid6.avi";  // For Loading Local Images
-    private static final String test7VideoPath = "Shots//Snaps//vid7.avi";  // For Loading Local Images
-    private static final String test8VideoPath = "Shots//Snaps//vid8.avi";  // For Loading Local Images
-    private static final String test9VideoPath = "Shots//Snaps//vid9.avi";  // For Loading Local Images
-    private static final String test10VideoPath = "Shots//Snaps//vid10.avi";  // For Loading Local Images
+    private static final int vidCount = videoCount();
+
+    private static final String buttonPanelStyle = "src//ph//edu//dlsu//css//playing-video.css";
+    private static  final String filePath = "Shots//vidclips//vidClip" + vidCount + ".avi";
+//    private static  final String filePath = "Shots//vidclips//GameofThronesTheme.avi";
     private static String url = null;
     static {
         try {
-            url = Paths.get(testVideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test2VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test3VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test4VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test5VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test6VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test7VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test8VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test9VideoPath).toUri().toURL().toString();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.out.println("Couldn't load video file");
-        }
-        try {
-            url = Paths.get(test10VideoPath).toUri().toURL().toString();
+            url = Paths.get(filePath).toUri().toURL().toString();
         } catch (MalformedURLException e) {
             e.printStackTrace();
             System.out.println("Couldn't load video file");
         }
     }
-
-    private static final List<String> videoFiles = new ArrayList<>();
-    private static int currentIndex = -1;
-    public enum ButtonMove {
-        NEXT, PREV
-    };
-    private static Group caption;
-    private static ImageView currentImageView;
-    private static AtomicBoolean loading = new AtomicBoolean();
 
     private static final String MEDIA_VIEW_ID = "media-view";
     private static final String STOP_BUTTON_ID = "stop-button";
@@ -127,6 +54,45 @@ public class VideoBox {
     private static MediaPlayer mediaPlayer;
     private static ChangeListener<Duration> progressListener;
     private static Stage stage;
+
+    public static int videoCount(){
+        String fileName = "Shots/VidClips/videoCount.txt";
+
+        String line = null;
+
+        int videoCount = 1;
+
+        BufferedReader bufferedReader = null;
+
+        try {
+            FileReader fileReader = new FileReader(fileName);
+
+            bufferedReader = new BufferedReader(fileReader);
+
+            while ((line = bufferedReader.readLine()) != null) {
+                if ((Integer.parseInt(line)) == 1) {
+                    videoCount = 10;
+                } else {
+                    videoCount = Integer.parseInt(line)-1 ;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to open file!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bufferedReader != null){
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+
+                }
+            }
+        }
+
+
+        return videoCount;
+    }
 
     public static void show() {
         stage = new Stage();
@@ -154,8 +120,6 @@ public class VideoBox {
 
         // Initialize stage to have fullscreen ability
         initFullScreenMode();
-
-        initializeVideos();
 
         // Create a media view to display video
         MediaView mediaView = createMediaView();
@@ -237,64 +201,6 @@ public class VideoBox {
                         stage.getY()));
     }
 
-    private static void initializeVideos() {
-        try {
-            //addImage(testImagePath);    //For Loading Online Images
-            addVideo(Paths.get(test10VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test9VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test8VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test7VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test6VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test5VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test4VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test3VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(test2VideoPath).toUri().toURL().toString()); //For Loading Local Images
-            addVideo(Paths.get(testVideoPath).toUri().toURL().toString()); //For Loading Local Images
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        if (currentIndex > -1) {
-            loadImage(videoFiles.get(currentIndex));
-        }
-    }
-
-
-    private static void addImage(String url) {
-        if (isValidImageFile(url)) {
-            currentIndex += 1;
-            videoFiles.add(currentIndex, url);
-        }
-    }
-
-    private static void loadImage(String url) {
-        if (!loading.getAndSet(true)) {
-            Task loadImage = createWorker(url);
-            new Thread(loadImage).start();
-        }
-    }
-
-    private static boolean isValidImageFile(String url) {
-        List<String> imgTypes = Arrays.asList(".avi", ".mp4", ".mpg", ".mpeg", ".mov");
-        return imgTypes.stream()
-                .anyMatch(url::endsWith);
-    }
-
-    private static Task createWorker(final String url) {
-        return new Task() {
-            @Override
-            protected Object call() throws Exception {
-
-                Image image = new Image(url, false);
-                Platform.runLater(() -> {
-
-                    currentImageView.setImage(image);
-                    loading.set(false);
-                });
-                return true;
-            }
-        };
-    }
 
     /**
      * A simple rectangular area as the surface of the app.
@@ -410,8 +316,6 @@ public class VideoBox {
      *
      * @return Node representing a close button.
      */
-
-
     private static Node createCloseButton() {
         Scene scene = stage.getScene();
         Group closeButton = new Group();
@@ -431,7 +335,7 @@ public class VideoBox {
             stage.close();
             mediaPlayer.stop();
             mediaPlayer = null;
-                 });
+        });
         return closeButton;
     }
 
@@ -441,14 +345,6 @@ public class VideoBox {
      *
      * @param url The URL pointing to an audio file
      */
-
-    private static void addVideo(String url) {
-        if (isValidImageFile(url)) {
-            currentIndex += 1;
-            videoFiles.add(currentIndex, url);
-        }
-    }
-
     private static void playMedia(String url) {
         Scene scene = stage.getScene();
         if (mediaPlayer != null) {

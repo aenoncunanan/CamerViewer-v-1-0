@@ -9,15 +9,17 @@
 -fx-fill: -black-ish;
 -fx-stroke: -white-ish;
 }
+/*
 .right-arrow {
 -fx-fill: -white-ish;
--fx-translate-x: 40;
-}
-.left-arrow {
--fx-fill: -white-ish;
--fx-translate-x: 2;
+-fx-translate-x: -25;
 }
 
+.left-arrow {
+-fx-fill: -white-ish;
+-fx-translate-x: -60;
+}
+*/
 #app-area {
 -fx-arc-width: 20;
 -fx-arc-height: 20;
