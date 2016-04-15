@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -36,6 +37,76 @@ public class Setting {
 
     String currentName = null;
     String currentPass = null;
+
+    CheckBox box = new CheckBox();
+    CheckBox box2 = new CheckBox();
+
+    Boolean boxBool = false;
+    Boolean box2Bool = true;
+
+    public void checkBoxReader(){
+        //Check the setting for the face detection
+        String faceDetect = "setting/faceDetect.txt";
+        String lineF = null;
+
+        BufferedReader bufferedReaderF = null;
+        FileReader fileReaderF = null;
+        try {
+            fileReaderF = new FileReader(faceDetect);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bufferedReaderF = new BufferedReader(fileReaderF);
+        try {
+            while ((lineF = (bufferedReaderF.readLine())) != null) {
+                if (lineF.equals("1")){
+                    boxBool = true;
+                } else if (lineF.equals("0")){
+                    boxBool = false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (bufferedReaderF != null) {
+            try {
+                bufferedReaderF.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //Check the setting for the guest user
+        String guest = "setting/guest.txt";
+        String lineG = null;
+
+        BufferedReader bufferedReaderG = null;
+        FileReader fileReaderG = null;
+        try {
+            fileReaderG = new FileReader(guest);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bufferedReaderG = new BufferedReader(fileReaderG);
+        try {
+            while ((lineG = (bufferedReaderG.readLine())) != null) {
+                if (lineG.equals("1")){
+                    box2Bool = true;
+                } else if (lineG.equals("0")){
+                    box2Bool = false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (bufferedReaderG != null) {
+            try {
+                bufferedReaderG.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void userFile(){
         String fileName = "setting/userFile.txt";
@@ -74,7 +145,6 @@ public class Setting {
         }
     }
 
-
     public Parent main(){
 
         Pane rootNode = new Pane();
@@ -85,6 +155,7 @@ public class Setting {
             rootNode.getChildren().add(imgBackground);
         }
 
+        checkBoxReader();
         userFile();
 
         //Set the grid-pane's properties for the contents
@@ -99,6 +170,14 @@ public class Setting {
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);                       //Place it at the bottom right part
         hbBtn.getChildren().add(btn);
         grid.add(hbBtn, 1, 6);                                      //Set it at Column 1, Row 6
+
+        box.setText("Enable Face Detection");
+        box.setSelected(boxBool);
+        grid.add(box, 0, 7);
+
+        box2.setText("Allow guest users");
+        box2.setSelected(box2Bool);
+        grid.add(box2, 0, 8);
 
         //Create new text for welcome
         Text scenetitle = new Text("Setup account: ");
@@ -229,14 +308,17 @@ public class Setting {
         final CustomMenuItem exit = new CustomMenuItem("exit", menuWidth, menuHeight);
 
         home.setOnMouseClicked(e -> {
+            CheckBoxWriter();
             Main.onHome();
         });
 
         logout.setOnMouseClicked(e -> {
+            CheckBoxWriter();
             Main.onLogIn();
         });
 
         exit.setOnMouseClicked(e -> {
+            CheckBoxWriter();
             Main.onExit();
         });
 
@@ -244,6 +326,84 @@ public class Setting {
         menuBox.setTranslateX((displayWidth - 3 * menuWidth)/2.0);
         menuBox.setTranslateY(0);
 
+    }
+
+    public void CheckBoxWriter(){
+        if (box.isSelected()){
+            File faceDetect = new File("setting/faceDetect.txt");
+            BufferedWriter outFace = null;
+            try {
+                outFace = new BufferedWriter(new FileWriter(faceDetect));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outFace.write("1");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outFace.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }else {
+            File faceDetect = new File("setting/faceDetect.txt");
+            BufferedWriter outFace = null;
+            try {
+                outFace = new BufferedWriter(new FileWriter(faceDetect));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outFace.write("0");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outFace.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+
+        if (box2.isSelected()){
+            File guest = new File("setting/guest.txt");
+            BufferedWriter outGuest = null;
+            try {
+                outGuest = new BufferedWriter(new FileWriter(guest));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outGuest.write("1");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outGuest.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }else {
+            File guest = new File("setting/guest.txt");
+            BufferedWriter outGuest = null;
+            try {
+                outGuest = new BufferedWriter(new FileWriter(guest));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outGuest.write("0");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outGuest.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 
 }

@@ -35,6 +35,11 @@ public class Main extends Application {
     //Program defined username and password
     static String userDefault = "admin";
     static String passDefault = "123";
+    static String guestUser = "guest";
+    static String guestPass = "guest";
+
+    static int mark = 0; //1 if user is guest, 1 if admin
+    static Boolean guestOpt = null; //mark if guest user is enabled
 
     public Main() throws IOException, FontFormatException {
     }
@@ -67,6 +72,9 @@ public class Main extends Application {
         //Get the User's Settings
         getUser();
 
+        //Get the User's option if guest user is enabled
+        checkBoxReader();
+
         //Set the background image
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Right.png", displayWidth, displayHeight);
         if (imgBackground != null) {
@@ -93,6 +101,7 @@ public class Main extends Application {
 //        grid.add(scenetitle, 0, 0, 2, 1);
         Text scenetitle = new Text("Welcome!");
         scenetitle.setFont(Font.font("Asimov", FontWeight.NORMAL, 55));
+//        scenetitle.setFont(Font.loadFont("file:res/fonts/AsimovWid.otf",55));
         scenetitle.setFill(Color.web("#009fe0"));
         grid.add(scenetitle, 0, 0, 2, 1);
 
@@ -121,6 +130,7 @@ public class Main extends Application {
         final Text message = new Text();                            //Create a message when sign in button is pressed
         grid.add(message, 1, 5);                                    //Set it at Column 1, Row 5
 
+        //Save user's settings as a text file
         File userFile = new File("setting/userFile.txt");
         BufferedWriter outFile = new BufferedWriter(new FileWriter(userFile));
         outFile.write(userDefault);
@@ -141,6 +151,18 @@ public class Main extends Application {
                     user.clear();                                                   //Empty the username text field
                     pass.clear();                                                   //Empty the password text field
                     message.setText(null);                                          //Empty the message
+                } else if (guestOpt){
+                    if (user.getText().equals(guestUser) && pass.getText().equals(guestPass)) {
+                        mark = 1;
+                        message.setText("Welcome " + user.getText());                   //Prompt a message if the inputs are correct
+                        onHome();                                                       //Enter the main program
+                        user.clear();                                                   //Empty the username text field
+                        pass.clear();                                                   //Empty the password text field
+                        message.setText(null);                                          //Empty the message
+                    }else {
+                        message.setText("Username or Password\nmismatched!");           //Prompt a message if the inputs are incorrect
+                        pass.clear();                                                   //Empty the password text field
+                    }
                 } else {
                     message.setText("Username or Password\nmismatched!");           //Prompt a message if the inputs are incorrect
                     pass.clear();                                                   //Empty the password text field
@@ -162,7 +184,9 @@ public class Main extends Application {
 
     //Create the stage for the Login when Logout button was pressed
     public static void onLogIn(){
+        mark = 0;
         getUser();                                                  //Get the User's Settings
+        checkBoxReader();                                           //Get the User's Settings if guest user is enabled
 
         stage.setTitle("Green Screen: Login");                      //Name the title of the Login stage
         stage.setScene(logInScene);                                 //Set the scene for the Login stage
@@ -173,26 +197,50 @@ public class Main extends Application {
     //Create the stage for the Home scene
     public static void onHome(){
         getUser();                                                  //Get the User's Settings
+        checkBoxReader();
 
-        Home home = new Home();
-        stage.setTitle("Green Screen: Home");                       //Name the title of the Home stage
-        stage.setScene(
-                new Scene(home.main(), displayWidth, displayHeight)
-        );                                                          //Set the scene for the Home stage
-        stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
-        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+        if (mark == 1) {
+            HomeGuest home = new HomeGuest();
+            stage.setTitle("Green Screen: Home");                       //Name the title of the Home stage
+            stage.setScene(
+                    new Scene(home.main(), displayWidth, displayHeight)
+            );                                                          //Set the scene for the Home stage
+            stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+            stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+        }
+        else{
+            Home home = new Home();
+            stage.setTitle("Green Screen: Home");                       //Name the title of the Home stage
+            stage.setScene(
+                    new Scene(home.main(), displayWidth, displayHeight)
+            );                                                          //Set the scene for the Home stage
+            stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+            stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+        }
     }
 
     //Create the stage for the Camera scene
     public static void onCamera() {
-        Camera camera = new Camera();
-        stage.setTitle("Green Screen: Live Stream");                //Name the title of the Camera stage
-        stage.setScene(
-                new Scene(camera.createCameraContent(),
-                        displayWidth, displayHeight)
-        );                                                          //Set the scene for the Camera stage
-        stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
-        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+
+        if (mark == 1){
+            CameraGuest camera = new CameraGuest();
+            stage.setTitle("Green Screen: Live Stream");                //Name the title of the Camera stage
+            stage.setScene(
+                    new Scene(camera.createCameraContent(),
+                            displayWidth, displayHeight)
+            );                                                          //Set the scene for the Camera stage
+            stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+            stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+        } else {
+            Camera camera = new Camera();
+            stage.setTitle("Green Screen: Live Stream");                //Name the title of the Camera stage
+            stage.setScene(
+                    new Scene(camera.createCameraContent(),
+                            displayWidth, displayHeight)
+            );                                                          //Set the scene for the Camera stage
+            stage.setFullScreen(true);                                  //Set the stage in fullscreen mode
+            stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+        }
     }
 
     //Method that will show 10 latest video clips recorded by the program
@@ -229,6 +277,40 @@ public class Main extends Application {
         }
 
         return confirmQuit;                                           //Return the boolean value
+    }
+
+    //Get User's setting if guest user is enabled
+    public static void checkBoxReader(){
+        //Check the setting for the guest user
+        String guest = "setting/guest.txt";
+        String lineG = null;
+
+        BufferedReader bufferedReaderG = null;
+        FileReader fileReaderG = null;
+        try {
+            fileReaderG = new FileReader(guest);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bufferedReaderG = new BufferedReader(fileReaderG);
+        try {
+            while ((lineG = (bufferedReaderG.readLine())) != null) {
+                if (lineG.equals("1")){
+                    guestOpt = true;
+                } else if (lineG.equals("0")){
+                    guestOpt = false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (bufferedReaderG != null) {
+            try {
+                bufferedReaderG.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     //Get User Settings

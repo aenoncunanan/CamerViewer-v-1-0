@@ -10,15 +10,20 @@ import org.opencv.videoio.VideoWriter;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Sound;
 import ph.edu.dlsu.utils.Utils;
+import ph.edu.dlsu.vision.ObjectDetector;
 
 import java.io.*;
 
 public class Camera extends BaseCameraScene{
 
+    private ObjectDetector faceDetector = new ObjectDetector();
+
     private boolean takePicture = false;
 
     private VideoWriter videoWriter;
     private int frames;
+
+    Boolean detectFace = null;
 
     int imageCount = imageCount();
     int videoCount = videoCount();
@@ -98,6 +103,8 @@ public class Camera extends BaseCameraScene{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        checkBoxReader();
 
         ScreenSize screen = new ScreenSize();
         displayWidth = screen.getDisplayWidth();
@@ -193,6 +200,10 @@ public class Camera extends BaseCameraScene{
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
 
+        if (detectFace) {
+            faceDetector.detectAndDisplay(frame);
+        }
+
         if (frames >= 0 && frames < 1200) { //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
             System.out.println(frames);
             videoWriter.write(frame);
@@ -236,6 +247,39 @@ public class Camera extends BaseCameraScene{
         if (videoWriter != null)
             videoWriter.release();
         super.stopCamera();
+    }
+
+    public void checkBoxReader(){
+        //Check the setting for the face detection
+        String faceDetect = "setting/faceDetect.txt";
+        String lineF = null;
+
+        BufferedReader bufferedReaderF = null;
+        FileReader fileReaderF = null;
+        try {
+            fileReaderF = new FileReader(faceDetect);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bufferedReaderF = new BufferedReader(fileReaderF);
+        try {
+            while ((lineF = (bufferedReaderF.readLine())) != null) {
+                if (lineF.equals("1")){
+                    detectFace = true;
+                } else if (lineF.equals("0")){
+                    detectFace = false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (bufferedReaderF != null) {
+            try {
+                bufferedReaderF.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

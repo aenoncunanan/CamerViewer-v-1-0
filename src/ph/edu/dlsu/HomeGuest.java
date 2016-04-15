@@ -49,11 +49,11 @@ public class HomeGuest {
         });
 
         videoclips.setOnMouseClicked(e -> {
-            Main.onVideoClips();
+
         });
 
         snapshots.setOnMouseClicked(e -> {
-            Main.onSnapShots();
+
         });
 
         logout.setOnMouseClicked(e -> {
@@ -61,7 +61,7 @@ public class HomeGuest {
         });
 
         setting.setOnMouseClicked(e -> {
-            Main.onSetting();
+
         });
 
         exit.setOnMouseClicked(e -> {
