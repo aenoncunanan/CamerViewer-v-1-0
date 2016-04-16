@@ -13,7 +13,7 @@ import javafx.scene.text.Text;
 
 public class CustomMenuItem extends StackPane{
 
-    public CustomMenuItem(String name){
+    public CustomMenuItem(String name){                                         //This class is made to design the menu base
 
         LinearGradient gradient = new LinearGradient(0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
                 new Stop(0, Color.web("#e9e779")),
@@ -26,11 +26,11 @@ public class CustomMenuItem extends StackPane{
         bg.setFill(Color.web("#f7ca18"));
         bg.setOpacity(0.4);
 
-        Text text = new Text(name);
+        Text text = new Text(name);                                             //Font and color of text
         text.setFill(Color.web("#2c3e50"));
         text.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 30));
 
-        setAlignment(Pos.CENTER);
+        setAlignment(Pos.CENTER);                                               //Align to center
 
         getChildren().addAll(bg, text);
 
@@ -63,15 +63,15 @@ public class CustomMenuItem extends StackPane{
                 new Stop(1, Color.web("#e9e779"))
         );
 
-        Rectangle bg = new Rectangle(rectWidth, rectHeight);
+        Rectangle bg = new Rectangle(rectWidth, rectHeight);                    //Rectangle width and heigth
         bg.setFill(Color.BLACK);
         bg.setOpacity(0.2);
 
-        Text text = new Text(name);
+        Text text = new Text(name);                                             //Design to start using text
         text.setFill(Color.BLUE);
         text.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 30));
 
-        setAlignment(Pos.CENTER);
+        setAlignment(Pos.CENTER);                                               //Position all to center
         getChildren().addAll(bg, text);
 
         setOnMouseEntered(event -> {

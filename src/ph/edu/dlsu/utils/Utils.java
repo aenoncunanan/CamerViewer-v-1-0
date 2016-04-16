@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 
 public class Utils {
 
-    public static Image mat2Image(Mat frame){
+    public static Image mat2Image(Mat frame){                                   //Utils - the one who make the matrix of the camera
 
         MatOfByte buffer = new MatOfByte();
         Imgcodecs.imencode(".jpg", frame, buffer);

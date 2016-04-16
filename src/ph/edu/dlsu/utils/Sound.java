@@ -6,7 +6,7 @@ public class Sound {
 
     private AudioClip menuClip;
 
-    public Sound(String path) {
+    public Sound(String path) {                                     //A class to be called whenever the video needs to play music
         try {
             menuClip = new AudioClip(path);
         } catch (Exception e) {

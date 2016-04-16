@@ -80,7 +80,7 @@ public abstract class BaseCameraScene {
                 System.err.println("Failed to open the external camera at port " + index);
             }
 
-            //Open the built-in camera if external camera was not found!
+                                                            //Open the built-in camera if external camera was not found!
             if (index == maxCam){
                 this.capture.open(0);
 
@@ -106,7 +106,7 @@ public abstract class BaseCameraScene {
 
     }
 
-    public void stopCamera(){
+    public void stopCamera(){                               //Open to stopCamera
         try{
             this.timer.shutdown();
             this.timer.awaitTermination(33, TimeUnit.MILLISECONDS);
@@ -121,7 +121,7 @@ public abstract class BaseCameraScene {
 
     }
 
-    public Image grabFrame(){
+    public Image grabFrame(){                               //Grab image or capture image
         Image imageToShow = null;
         Mat frame = new Mat();
 

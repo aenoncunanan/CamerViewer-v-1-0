@@ -79,24 +79,24 @@ public class ImageBox {
     private static Point2D anchorPt;
     private static Point2D previousLocation;
 
-    private static double sceneWidth;
-    private static double sceneHeight;
+    private static double sceneWidth;                       // To define the Width of the scene
+    private static double sceneHeight;                      // To define the Height of the scene
 
     public static void show() {
 
-        stage = new Stage();
+        stage = new Stage();                                // To set the new Stage
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setX(400);
         stage.setY(120);
 
-        double scale = 1.5;
-        sceneWidth = 640.0 * scale;
-        sceneHeight = 360.0 * scale;
+        double scale = 1.5;                                 //
+        sceneWidth = 640.0 * scale;                         // To know the Scale of Width
+        sceneHeight = 360.0 * scale;                        // To know the Scale of Height
 
-        Group root = new Group();
+        Group root = new Group();                           // To define new Group
 
-        Scene scene = new Scene(root, sceneWidth, sceneHeight);
+        Scene scene = new Scene(root, sceneWidth, sceneHeight);   // Set the scene from Width and Height
         scene.setFill(null);
 
         try {
@@ -105,11 +105,11 @@ public class ImageBox {
             e.printStackTrace();
         }
 
-        stage.setScene(scene);
+        stage.setScene(scene);                              // Set the stage scene
 
-        initFullScreenMode();
-        initMovableWindow();
-        initializeImages();
+        initFullScreenMode();                               // To initialize FullScreenMode
+        initMovableWindow();                                // To initialize MovableWindow
+        initializeImages();                                 // To initialize Images
 
         currentImageView = createImageView(scene.heightProperty());
 
@@ -123,15 +123,15 @@ public class ImageBox {
         imagePane.maxHeightProperty().bind(scene.heightProperty());
         imagePane.minHeightProperty().bind(scene.heightProperty());
 
-        imagePane.setAlignment(Pos.CENTER);
+        imagePane.setAlignment(Pos.CENTER);                 // To align the screen to center
 
         Group buttonGroup = createButtonPanel(scene);
 
         caption = createTickerControl(stage, 85);
 
-        Node closeButton = createCloseButton();
+        Node closeButton = createCloseButton();             // To create close button
 
-        root.getChildren().addAll(
+        root.getChildren().addAll(                          // To get the functions of all the children
                 imagePane,
                 buttonGroup,
                 caption,
@@ -139,30 +139,30 @@ public class ImageBox {
         );
 
         stage.setFullScreen(true);
-        stage.setFullScreenExitHint("");                            //Set the message when going in fullscreen mode
+        stage.setFullScreenExitHint("");                    // Set the message when going in fullscreen mode
         stage.show();
 
     }
 
-    private static void initFullScreenMode() {
-        Scene scene = stage.getScene();
+    private static void initFullScreenMode() {                  // Function which set the screen to fullscreen
+        Scene scene = stage.getScene();                         // To set the stage.scene
 
-        scene.setOnMouseClicked((MouseEvent event) -> {
-            if (event.getClickCount() == 2) {
+        scene.setOnMouseClicked((MouseEvent event) -> {         // To allow the user to click the set event
+            if (event.getClickCount() == 2) {                   // To set the fullscreen method
                 stage.setFullScreen(!stage.isFullScreen());
             }
         });
     }
 
-    private static void initMovableWindow() {
+    private static void initMovableWindow() {                           // Function that simplifies the changes of the windows
         Scene scene = stage.getScene();
 
-        scene.setOnMousePressed(mouseEvent
+        scene.setOnMousePressed(mouseEvent                              // To allow the user to click Point2D
                 -> anchorPt = new Point2D(mouseEvent.getScreenX(),
                 mouseEvent.getScreenY())
         );
 
-        scene.setOnMouseDragged(mouseEvent -> {
+        scene.setOnMouseDragged(mouseEvent -> {                         // To allow the user to click anchorPT
             if (anchorPt != null && previousLocation != null) {
                 stage.setX(previousLocation.getX()
                         + mouseEvent.getScreenX()
@@ -173,7 +173,7 @@ public class ImageBox {
             }
         });
 
-        scene.setOnMouseReleased(mouseEvent
+        scene.setOnMouseReleased(mouseEvent                             // To allow the user to click the previousLocation
                 -> previousLocation = new Point2D(stage.getX(),
                 stage.getY())
         );
@@ -183,7 +183,7 @@ public class ImageBox {
                         stage.getY()));
     }
 
-    private static void initializeImages() {
+    private static void initializeImages() {                                 // To allow the function to load images
         try {
             //addImage(testImagePath);    //For Loading Online Images
             addImage(Paths.get(test20ImagePath).toUri().toURL().toString()); //For Loading Local Images
@@ -215,17 +215,17 @@ public class ImageBox {
         }
     }
 
-    private static Group createButtonPanel(Scene scene) {
+    private static Group createButtonPanel(Scene scene) {                   // To create button
         Group buttonGroup = new Group();
         Rectangle buttonArea = new Rectangle(0, 0, 65, 30);
         buttonArea.getStyleClass().add("button-panel");
         buttonGroup.getChildren().add(buttonArea);
 
-        Arc leftButton = new Arc(12, 16, 15, 15, -30, 60);
+        Arc leftButton = new Arc(12, 16, 15, 15, -30, 60);                  // To click left arrow
         leftButton.setType(ArcType.ROUND);
         leftButton.getStyleClass().add("left-arrow");
 
-        leftButton.addEventHandler(MouseEvent.MOUSE_PRESSED,
+        leftButton.addEventHandler(MouseEvent.MOUSE_PRESSED,                // To know the currentIndex
                 (mouseEvent) -> {
                     if (currentIndex == 0 || loading.get()) return;
                     int indx = gotoImageIndex(ButtonMove.PREV);
@@ -234,22 +234,22 @@ public class ImageBox {
                     }
                 });
 
-        Arc rightButton = new Arc(12, 16, 15, 15, 180 - 30, 60);
+        Arc rightButton = new Arc(12, 16, 15, 15, 180 - 30, 60);            // To click right arrow
         rightButton.setType(ArcType.ROUND);
         rightButton.getStyleClass().add("right-arrow");
 
-        rightButton.addEventHandler(MouseEvent.MOUSE_PRESSED,
+        rightButton.addEventHandler(MouseEvent.MOUSE_PRESSED,               // To allow the user to view images
                 (mouseEvent) -> {
 
-                    if (currentIndex == imageFiles.size() - 1
-                            || loading.get()) return;
+                    if (currentIndex == imageFiles.size() - 1|| loading.get())
+                        return;
                     int indx = gotoImageIndex(ButtonMove.NEXT);
                     if (indx > -1) {
                         loadImage(imageFiles.get(indx));
                     }
                 });
 
-        buttonGroup.getChildren().addAll(leftButton, rightButton);
+        buttonGroup.getChildren().addAll(leftButton, rightButton);          // To allow the user to click left ot right button
 
         buttonGroup.translateXProperty()
                 .bind(scene.widthProperty()
@@ -258,7 +258,7 @@ public class ImageBox {
                 .bind(scene.heightProperty()
                         .subtract(buttonArea.getHeight() + 6));
 
-        scene.setOnMouseEntered((MouseEvent me) -> {
+        scene.setOnMouseEntered((MouseEvent me) -> {                        //To allow the user to click
             FadeTransition fadeButtons =
                     new FadeTransition(Duration.millis(500), buttonGroup);
             fadeButtons.setFromValue(0.0);
@@ -266,7 +266,7 @@ public class ImageBox {
             fadeButtons.play();
         });
 
-        scene.setOnMouseExited((MouseEvent me) -> {
+        scene.setOnMouseExited((MouseEvent me) -> {                         //To allow the user to click
             FadeTransition fadeButtons =
                     new FadeTransition(Duration.millis(500), buttonGroup);
             fadeButtons.setFromValue(1);
@@ -277,7 +277,7 @@ public class ImageBox {
         return buttonGroup;
     }
 
-    private static Node createCloseButton() {
+    private static Node createCloseButton() {                               // This function is used to close the stage
         Scene scene = stage.getScene();
         Group closeButton = new Group();
         closeButton.setId(CLOSE_BUTTON_ID);
@@ -295,7 +295,7 @@ public class ImageBox {
         return closeButton;
     }
 
-    private static ImageView createImageView(ReadOnlyDoubleProperty heightProperty) {
+    private static ImageView createImageView(ReadOnlyDoubleProperty heightProperty) {       // This function serves the user to view image
         Scene scene = stage.getScene();
         ImageView imageView = new ImageView();
         imageView.setPreserveRatio(true);
@@ -303,20 +303,20 @@ public class ImageBox {
         return imageView;
     }
 
-    private static boolean isValidImageFile(String url) {
+    private static boolean isValidImageFile(String url) {                                   // This function is to validate which kind of format are ready to view
         List<String> imgTypes = Arrays.asList(".jpg", ".jpeg", ".png", ".gif", ".bmp");
         return imgTypes.stream()
                 .anyMatch(url::endsWith);
     }
 
-    private static void addImage(String url) {
+    private static void addImage(String url) {                                              // This function adds image
         if (isValidImageFile(url)) {
             currentIndex += 1;
             imageFiles.add(currentIndex, url);
         }
     }
 
-    private static int gotoImageIndex(ButtonMove direction) {
+    private static int gotoImageIndex(ButtonMove direction) {                               // This function will validate the direction of the images saved
         int size = imageFiles.size();
         if (size == 0) {
             currentIndex = -1;
@@ -348,7 +348,7 @@ public class ImageBox {
         };
     }
 
-    private static void loadImage(String url) {
+    private static void loadImage(String url) {                                             // To load image itself
         if (!loading.getAndSet(true)) {
             Task loadImage = createWorker(url);
             new Thread(loadImage).start();

@@ -313,10 +313,10 @@ public class Main extends Application {
         }
     }
 
-    //Get User Settings
-    public static void getUser() {
-        //Get the User's Settings
-        String fileName = "setting/userFile.txt";
+
+    public static void getUser() {                                  //Get User Settings
+
+        String fileName = "setting/userFile.txt";                   //Get the User's Settings
         String line = null;
         int counter = 0;
         BufferedReader bufferedReader = null;
@@ -345,9 +345,9 @@ public class Main extends Application {
         }
     }
 
-    //Program will will run this first!
-    public static void main(String[] args) {
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);                 //Load the OpenCV Library
+
+    public static void main(String[] args) {                        //Program will will run this first!
+        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);               //Load the OpenCV Library
         launch(args);
     }
 

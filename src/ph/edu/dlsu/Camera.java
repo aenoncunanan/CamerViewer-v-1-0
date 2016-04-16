@@ -28,7 +28,7 @@ public class Camera extends BaseCameraScene{
     int imageCount = imageCount();
     int videoCount = videoCount();
 
-    public int videoCount(){
+    public int videoCount(){                                                    //Video Clips count
         String fileName = "Shots/VidClips/videoCount.txt";
 
         String line = null;
@@ -94,10 +94,10 @@ public class Camera extends BaseCameraScene{
             }
         }
         return imageCount;
-    }
+    }                                                //Image count
 
     @Override
-    public Parent createCameraContent(){
+    public Parent createCameraContent(){                                        //Initialize capture
         try {
             initializeCapture();
         } catch (IOException e) {
@@ -106,7 +106,7 @@ public class Camera extends BaseCameraScene{
 
         checkBoxReader();
 
-        ScreenSize screen = new ScreenSize();
+        ScreenSize screen = new ScreenSize();                                   //Screen Size display
         displayWidth = screen.getDisplayWidth();
         displayHeight = screen.getDisplayHeight();
 
@@ -118,11 +118,11 @@ public class Camera extends BaseCameraScene{
 
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Center.png", displayWidth, displayHeight);
         if(imgBackground != null){
-            rootNode.getChildren().add(imgBackground);
+            rootNode.getChildren().add(imgBackground);                      //Appearance of the Screen Bakcground
         }
 
         currentFrame = Utils.loadImage2View("res//images//Green-Screen-Center.png", frameWidth, frameHeight);
-        currentFrame.setTranslateX((displayWidth - frameWidth)/2.0);
+        currentFrame.setTranslateX((displayWidth - frameWidth)/2.0);        //Load green screen image in the menu
         currentFrame.setTranslateY(0);
         rootNode.getChildren().add(currentFrame);
         startCamera();
@@ -136,14 +136,16 @@ public class Camera extends BaseCameraScene{
     private void initializeCapture() throws IOException{
         frameHeight = 0;
         frameWidth = 0;
-        int fps = 20; //Lower value means slow motion; Higher value means fast motion; value is equal to minute in real time
+        int fps = 20;                                                       //Lower value means slow motion;
+                                                                            //Higher value means fast motion;
+                                                                            //Value is equal to minute in real time
 
         String outputFile = "Shots/VidClips/vidClip" + videoCount + ".avi";
         int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
 
         videoWriter = new VideoWriter(outputFile, fourCC, fps, new Size(frameWidth, frameHeight), true);
 
-        if (!videoWriter.isOpened()){
+        if (!videoWriter.isOpened()){                                       //Alert the user that the record video is unable to work!
             System.out.println("Unable to record a video!");
         }
 
@@ -195,7 +197,7 @@ public class Camera extends BaseCameraScene{
         menuBox.setTranslateX((displayWidth - 4 * menuWidth)/2.0);
         menuBox.setTranslateY(0);
 
-    }
+    }                                          //Create Horizontal Menu
 
     @Override
     public void onCameraFrame(Mat frame) throws IOException {
@@ -204,7 +206,7 @@ public class Camera extends BaseCameraScene{
             faceDetector.detectAndDisplay(frame);
         }
 
-        if (frames >= 0 && frames < 1200) { //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
+        if (frames >= 0 && frames < 1200) {                                 //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
             System.out.println(frames);
             videoWriter.write(frame);
             frames++;
@@ -216,7 +218,7 @@ public class Camera extends BaseCameraScene{
             initializeCapture();
         }
 
-        if (takePicture){
+        if (takePicture){                                                   //capture photo and saved in a folder 'Snaps'
             String fileName = "snap" + imageCount + ".png";
 
             Imgcodecs.imwrite("Shots/Snaps/" + fileName, frame);
@@ -242,7 +244,7 @@ public class Camera extends BaseCameraScene{
 
     }
 
-    @Override
+    @Override                                                               //Stop Camera and release the video
     public void stopCamera(){
         if (videoWriter != null)
             videoWriter.release();
@@ -250,7 +252,7 @@ public class Camera extends BaseCameraScene{
     }
 
     public void checkBoxReader(){
-        //Check the setting for the face detection
+                                                                            //Check the setting for the face detection
         String faceDetect = "setting/faceDetect.txt";
         String lineF = null;
 

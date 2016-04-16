@@ -4,7 +4,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class MenuVBox extends VBox{
+public class MenuVBox extends VBox{                                     //Extended class for Vertical Box
 
     public MenuVBox(CustomMenuItem...items){
 
@@ -16,7 +16,7 @@ public class MenuVBox extends VBox{
 
     }
 
-    private Line createSeparator(){
+    private Line createSeparator(){                                     //line separates the item menu
 
         Line sep = new Line();
         sep.setEndX(245);

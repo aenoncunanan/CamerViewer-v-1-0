@@ -8,11 +8,11 @@ public class ScreenSize {
     private double displayWidth;
     private double displayHeight;
 
-    public ScreenSize(){
+    public ScreenSize(){                                                    //Get the screen size of the computer
 
         ObservableList<Screen> screenList = Screen.getScreens();
-        displayWidth = screenList.get(0).getBounds().getWidth();
-        displayHeight = screenList.get(0).getBounds().getHeight();
+        displayWidth = screenList.get(0).getBounds().getWidth();            //To display Width
+        displayHeight = screenList.get(0).getBounds().getHeight();          //To display height
 
     }
 
