@@ -29,7 +29,7 @@ public class Camera extends BaseCameraScene {
     int imageCount = imageCount();
     int videoCount = videoCount();
 
-    public int videoCount() {                                                    //Video Clips count
+    public int videoCount(){                                                    //Video Clips count
         String fileName = "Shots/VidClips/videoCount.txt";
 
         String line = null;
@@ -98,7 +98,7 @@ public class Camera extends BaseCameraScene {
     }                                                //Image count
 
     @Override
-    public Parent createCameraContent() {                                        //Initialize capture
+    public Parent createCameraContent(){                                        //Initialize capture
         try {
             initializeCapture();
         } catch (IOException e) {
@@ -118,12 +118,12 @@ public class Camera extends BaseCameraScene {
         rootNode.setPrefSize(displayWidth, displayHeight);
 
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Center.png", displayWidth, displayHeight);
-        if (imgBackground != null) {
+        if(imgBackground != null){
             rootNode.getChildren().add(imgBackground);                      //Appearance of the Screen Bakcground
         }
 
         currentFrame = Utils.loadImage2View("res//images//Green-Screen-Center.png", frameWidth, frameHeight);
-        currentFrame.setTranslateX((displayWidth - frameWidth) / 2.0);        //Load green screen image in the menu
+        currentFrame.setTranslateX((displayWidth - frameWidth)/2.0);        //Load green screen image in the menu
         currentFrame.setTranslateY(0);
         rootNode.getChildren().add(currentFrame);
         startCamera();
@@ -134,19 +134,17 @@ public class Camera extends BaseCameraScene {
         return rootNode;
     }
 
-    private void initializeCapture() throws IOException {
+    private void initializeCapture() throws IOException{
         frameHeight = 0;
         frameWidth = 0;
-        int fps = 20;                                                       //Lower value means slow motion;
-        //Higher value means fast motion;
-        //Value is equal to minute in real time
+        int fps = 20; //Lower value means slow motion; Higher value means fast motion; value is equal to minute in real time
 
         String outputFile = "Shots/VidClips/vidClip" + videoCount + ".avi";
         int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
 
         videoWriter = new VideoWriter(outputFile, fourCC, fps, new Size(frameWidth, frameHeight), true);
 
-        if (!videoWriter.isOpened()) {                                       //Alert the user that the record video is unable to work!
+        if (!videoWriter.isOpened()){                                       //Alert the user that the record video is unable to work!
             System.out.println("Unable to record a video!");
         }
 
@@ -188,7 +186,7 @@ public class Camera extends BaseCameraScene {
 
         exit.setOnMouseClicked(e -> {
             Boolean confirmQuit = Main.onExit();
-            if (confirmQuit) {
+            if(confirmQuit){
                 stopCamera();
             }
         });
@@ -198,7 +196,7 @@ public class Camera extends BaseCameraScene {
         menuBox.setTranslateX((displayWidth - 4 * menuWidth) / 2.0);
         menuBox.setTranslateY(0);
 
-    }                                          //Create Horizontal Menu
+    }
 
     @Override
     public void onCameraFrame(Mat frame, Boolean motionDetected) throws IOException {

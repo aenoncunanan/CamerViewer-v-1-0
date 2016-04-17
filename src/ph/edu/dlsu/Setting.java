@@ -303,7 +303,7 @@ public class Setting {
                         e.printStackTrace();
                     }
 
-                        message.setText("Username and Password\nwas successfully changed!");                   //Prompt a message if the inputs are correct
+                    message.setText("Username and Password\nwas successfully changed!");                   //Prompt a message if the inputs are correct
                     user.clear();                                                   //Empty the username text field
                     pass.clear();                                                   //Empty the password text field
                     userNew.clear();                                                //Empty the new username text field
