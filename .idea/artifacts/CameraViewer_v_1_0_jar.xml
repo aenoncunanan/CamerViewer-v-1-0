@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CameraViewer-v-1-0:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CameraViewer_v_1_0_jar</output-path>
+    <root id="archive" name="CameraViewer-v-1-0_jar.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="CameraViewer-v-1-0" />
+      <element id="extracted-dir" path="C:/opencv/build/java/opencv-310.jar" path-in-jar="/" />
+      <element id="file-copy" path="C:/opencv/build/java/opencv-310.jar" />
+    </root>
+  </artifact>
+</component>

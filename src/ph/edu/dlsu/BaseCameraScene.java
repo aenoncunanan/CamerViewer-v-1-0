@@ -44,7 +44,7 @@ public abstract class BaseCameraScene {
 
     public abstract void onCameraFrame(Mat frame, Boolean motionDetected) throws IOException;
 
-    public void startCamera(){
+    public void startCamera() {
 
 //        //Accessing ipCameras
 ////        this.capture.open("http://121.96.255.156:1024/?dummy=video.mjpeg");
@@ -66,11 +66,11 @@ public abstract class BaseCameraScene {
         //Search for external cameras!
         int maxCam = 5;
 
-        for (int index = 1; index <= maxCam; index++){
+        for (int index = 1; index <= maxCam; index++) {
 
             this.capture.open(index);
 
-            if(this.capture.isOpened()){
+            if (this.capture.isOpened()) {
                 Runnable frameGrabber = () -> {
                     Image imageToShow = grabFrame();
                     currentFrame.setImage(imageToShow);
@@ -82,16 +82,15 @@ public abstract class BaseCameraScene {
                 System.out.println("External camera at port " + index + " opened");
 
                 break;
-            }
-            else {
+            } else {
                 System.err.println("Failed to open the external camera at port " + index);
             }
 
-                                                            //Open the built-in camera if external camera was not found!
-            if (index == maxCam){
+            //Open the built-in camera if external camera was not found!
+            if (index == maxCam) {
                 this.capture.open(0);
 
-                if(this.capture.isOpened()){
+                if (this.capture.isOpened()) {
                     Runnable frameGrabber = () -> {
                         Image imageToShow = grabFrame();
                         currentFrame.setImage(imageToShow);
@@ -103,8 +102,7 @@ public abstract class BaseCameraScene {
                     System.out.println("Built-in camera opened");
 
                     break;
-                }
-                else {
+                } else {
                     System.err.println("Failed to open the built-in camera at port 0");
                 }
             }
@@ -113,35 +111,35 @@ public abstract class BaseCameraScene {
 
     }
 
-    public void stopCamera(){                               //Open to stopCamera
-        try{
+    public void stopCamera() {                               //Open to stopCamera
+        try {
             this.timer.shutdown();
             this.timer.awaitTermination(33, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             System.err.println("Exception in stopping the frame capture, trying to release the camera now." + e);
         }
 
         this.capture.release();
-        if(currentFrame != null){
+        if (currentFrame != null) {
             this.currentFrame.setImage(null);
         }
 
     }
 
-    public Image grabFrame(){                               //Grab image or capture image
+    public Image grabFrame() {                               //Grab image or capture image
         Image imageToShow = null;
 
         Mat diffFrame = new Mat();
         Mat grayDiffFrame = new Mat();
         Mat grayPrevFrame = new Mat();
 
-        if(this.capture.isOpened()){
+        if (this.capture.isOpened()) {
 
-            if (!firstFrame){
+            if (!firstFrame) {
                 prevFrame = frame.clone();
             }
 
-            try{
+            try {
                 this.capture.read(frame);
 
                 if (!frame.empty()) {
@@ -154,11 +152,16 @@ public abstract class BaseCameraScene {
                         Imgproc.cvtColor(diffFrame, grayDiffFrame, Imgproc.COLOR_BGR2GRAY);
                         Imgproc.cvtColor(prevFrame, grayPrevFrame, Imgproc.COLOR_BGR2GRAY);
 
-                        float motionPercent = (Core.countNonZero(grayDiffFrame) / Core.countNonZero(grayPrevFrame)) * 100;
+                        float diff = Core.countNonZero(grayDiffFrame);
+                        float prev = Core.countNonZero(grayPrevFrame);
 
-                        System.out.println(motionPercent);
+                        float motionPercent = (diff / prev) * 100;
 
-                        if (motionPercent > 0) {            //Percentage to consider as a motion
+//                        System.out.println("diff: " + diff);
+//                        System.out.println("prev: " + prev);
+//                        System.out.println("motion: " + motionPercent);
+
+                        if (motionPercent > 97) {            //Percentage to consider as a motion
                             System.out.println("MOTION DETECTED!");
                             motionDetected = true;
                         } else {
@@ -172,7 +175,7 @@ public abstract class BaseCameraScene {
                     imageToShow = Utils.mat2Image(frame);
 
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.err.println("Exception during the image elaboration: " + e);
             }
         }

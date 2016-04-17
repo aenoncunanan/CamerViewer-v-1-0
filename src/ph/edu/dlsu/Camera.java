@@ -208,7 +208,7 @@ public class Camera extends BaseCameraScene {
         }
 
         if (frames >= 0 && frames < 1200) {                                 //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
-            System.out.println(frames);
+//            System.out.println(frames);
             videoWriter.write(frame);
             frames++;
         } else {
