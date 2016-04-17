@@ -4,7 +4,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
-public class MenuHBox extends HBox{
+public class MenuHBox extends HBox{                                         //Extended class for Horizontal Box
 
     public MenuHBox(CustomMenuItem... items){
 
@@ -16,7 +16,7 @@ public class MenuHBox extends HBox{
 
     }
 
-    private Line createSeparator(){
+    private Line createSeparator(){                                         //line separates the item menu
 
         Line sep = new Line();
         sep.setEndY(40);

@@ -7,7 +7,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class MenuTitle extends StackPane {
+public class MenuTitle extends StackPane {                                  //Menu title
 
     public MenuTitle(String name){
 

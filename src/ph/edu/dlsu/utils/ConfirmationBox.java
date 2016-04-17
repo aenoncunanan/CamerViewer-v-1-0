@@ -23,39 +23,39 @@ public class ConfirmationBox{
 
         yesButtonClicked = false;
 
-        stage = new Stage();
+        stage = new Stage();                                                    //Set up new stage style
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setMinWidth(250);
 
-        Label label = new Label();
+        Label label = new Label();                                              //Label the font anf textfill color
         label.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 30));
         label.setTextFill(Color.BLACK);
         label.setText(message);
 
-        Button yesButton = new Button();
+        Button yesButton = new Button();                                        //No Button font
         yesButton.setText(textYes);
         yesButton.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 25));
         yesButton.setMaxWidth(Double.MAX_VALUE);
         yesButton.setOnAction(e -> onClickYes());
 
-        Button noButton = new Button();
+        Button noButton = new Button();                                         //Yes Button font
         noButton.setText(textNo);
         noButton.setFont(Font.font("Asimov", FontWeight.SEMI_BOLD, 25));
         noButton.setMaxWidth(Double.MAX_VALUE);
         noButton.setOnAction(e -> onClickNo());
 
-        HBox paneBtn = new HBox(20);
+        HBox paneBtn = new HBox(20);                                            //Horizontal Box position
         paneBtn.getChildren().addAll(yesButton, noButton);
         paneBtn.setPadding(new Insets(20));
         paneBtn.setAlignment(Pos.CENTER);
 
-        VBox pane = new VBox(20);
+        VBox pane = new VBox(20);                                               //Vertical Box position
         pane.getChildren().addAll(label, paneBtn);
         pane.setPadding(new Insets(20));
         pane.setAlignment(Pos.CENTER);
 
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene(pane);                                          //SetFill to color black
         scene.setFill(Color.BLACK);
         stage.setScene(scene);
         stage.showAndWait();
@@ -64,12 +64,12 @@ public class ConfirmationBox{
 
     }
 
-    private static void onClickNo(){
+    private static void onClickNo(){                                            //Click Yes Button
         stage.close();
         yesButtonClicked = false;
     }
 
-    private static void onClickYes(){
+    private static void onClickYes(){                                           //Click No Button
         stage.close();
         yesButtonClicked = true;
     }

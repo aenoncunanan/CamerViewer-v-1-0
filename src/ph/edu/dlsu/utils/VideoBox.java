@@ -107,50 +107,50 @@ public class VideoBox {
         Group root = new Group();
         Scene scene = new Scene(root, 640.0 * scale, 360.0 * scale, Color.rgb(0, 0, 0, 0));
 
-        // Load JavaFX CSS style
-        try {
+
+        try {                                                               // Load JavaFX CSS style
             scene.getStylesheets().add(Paths.get(buttonPanelStyle).toUri().toURL().toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         stage.setScene(scene);
 
-        // Initialize stage to be movable via mouse
-        initMovableWindow();
 
-        // Initialize stage to have fullscreen ability
-        initFullScreenMode();
+        initMovableWindow();                                                // Initialize stage to be movable via mouse
 
-        // Create a media view to display video
-        MediaView mediaView = createMediaView();
 
-        // application area
-        Node applicationArea = createApplicationArea();
+        initFullScreenMode();                                               // Initialize stage to have fullscreen ability
 
-        // Create the button panel
-        Node buttonPanel = createButtonPanel();
 
-        // Progress and seek position slider
-        Slider progressSlider = createSlider();
+        MediaView mediaView = createMediaView();                            // Create a media view to display video
 
-        // Update slider as video is progressing
-        progressListener = (observable, oldValue, newValue) ->
+
+        Node applicationArea = createApplicationArea();                     // application area
+
+
+        Node buttonPanel = createButtonPanel();                             // Create the button panel
+
+
+        Slider progressSlider = createSlider();                             // Progress and seek position slider
+
+
+        progressListener = (observable, oldValue, newValue) ->              // Update slider as video is progressing
                 progressSlider.setValue(newValue.toSeconds());
 
 
-        // Create the close button
-        Node closeButton = createCloseButton();
 
-        // Add Nodes to the Group
-        root.getChildren()
+        Node closeButton = createCloseButton();                             // Create the close button
+
+
+        root.getChildren()                                                  // Add Nodes to the Group
                 .addAll(applicationArea,
                         mediaView,
                         buttonPanel,
                         progressSlider,
                         closeButton);
 
-        // Play video file
-        try {
+
+        try {                                                               // Play video file
             playMedia(url);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -160,7 +160,7 @@ public class VideoBox {
         stage.show();
     }
 
-    private static void initFullScreenMode() {
+    private static void initFullScreenMode() {                              //
         Scene scene = stage.getScene();
 
         scene.setOnMouseClicked((MouseEvent event) -> {
@@ -172,15 +172,15 @@ public class VideoBox {
 
 
 
-    private static void initMovableWindow() {
+    private static void initMovableWindow() {                               //
         Scene scene = stage.getScene();
-        // starting initial anchor point
-        scene.setOnMousePressed(mouseEvent
+
+        scene.setOnMousePressed(mouseEvent                                  // starting initial anchor point
                 -> anchorPt = new Point2D(mouseEvent.getScreenX(),
                 mouseEvent.getScreenY())
         );
-        // dragging the entire stage
-        scene.setOnMouseDragged(mouseEvent -> {
+
+        scene.setOnMouseDragged(mouseEvent -> {                             // dragging the entire stage
             if (anchorPt != null && previousLocation != null) {
                 stage.setX(previousLocation.getX()
                         + mouseEvent.getScreenX()
@@ -190,55 +190,42 @@ public class VideoBox {
                         - anchorPt.getY());
             }
         });
-        // set the current location
-        scene.setOnMouseReleased(mouseEvent
+
+        scene.setOnMouseReleased(mouseEvent                                 // set the current location
                 -> previousLocation = new Point2D(stage.getX(),
                 stage.getY())
         );
-        // Initialize previousLocation after Stage is shown
-        stage.addEventHandler(WindowEvent.WINDOW_SHOWN,
+
+        stage.addEventHandler(WindowEvent.WINDOW_SHOWN,                     // Initialize previousLocation after Stage is shown
                 (WindowEvent t) -> previousLocation = new Point2D(stage.getX(),
                         stage.getY()));
     }
 
 
-    /**
-     * A simple rectangular area as the surface of the app.
-     *
-     * @return Node a Rectangle node.
-     */
     private static Node createApplicationArea() {
         Scene scene = stage.getScene();
         Rectangle applicationArea = new Rectangle();
-        // add selector to style app-area
-        applicationArea.setId("app-area");
-        // make the app area rectangle the size of the scene.
-        applicationArea.widthProperty()
+
+        applicationArea.setId("app-area");                                  // add selector to style app-area
+
+        applicationArea.widthProperty()                                     // make the app area rectangle the size of the scene.
                 .bind(scene.widthProperty());
         applicationArea.heightProperty()
                 .bind(scene.heightProperty());
         return applicationArea;
     }
 
-
-    /**
-     * Creates a node containing the audio player's
-     * stop, pause and play buttons.
-     *
-     * @return Node A button panel having play,
-     * pause and stop buttons.
-     */
     private static Node createButtonPanel() {
         Scene scene = stage.getScene();
-        // create button control panel
-        Group buttonGroup = new Group();
-        // Button area
-        Rectangle buttonArea = new Rectangle(60, 30);
+
+        Group buttonGroup = new Group();                                    // create button control panel
+
+        Rectangle buttonArea = new Rectangle(60, 30);                       // Button area
         buttonArea.setId("button-area");
         buttonGroup.getChildren()
                 .add(buttonArea);
-        // stop button control
-        Node stopButton = new Rectangle(10, 10);
+
+        Node stopButton = new Rectangle(10, 10);                            // stop button control
         stopButton.setId(STOP_BUTTON_ID);
         stopButton.setOnMousePressed(mouseEvent -> {
             if (mediaPlayer != null) {
@@ -247,9 +234,9 @@ public class VideoBox {
                     mediaPlayer.stop();
                 }
             }
-        }); // setOnMousePressed()
+        });                                                                 // setOnMousePressed()
 
-        // play button
+                                                                            // play button
         Arc playButton = new Arc(12, // center x
                 16, // center y
                 15, // radius x
@@ -287,21 +274,21 @@ public class VideoBox {
                 }
             }
         });
-        // setOnMousePressed()
-        playButton.setOnMousePressed(mouseEvent -> {
+
+        playButton.setOnMousePressed(mouseEvent -> {                        // setOnMousePressed()
             if (mediaPlayer != null) {
                 updatePlayAndPauseButtons(false);
                 mediaPlayer.play();
             }
         });
-        // setOnMousePressed()
-        buttonGroup.getChildren()
+
+        buttonGroup.getChildren()                                           // setOnMousePressed()
                 .addAll(stopButton,
                         playButton,
                         pauseButton);
 
-        // move button group when scene is resized
-        buttonGroup.translateXProperty()
+
+        buttonGroup.translateXProperty()                                    // move button group when scene is resized
                 .bind(scene.widthProperty()
                         .subtract(buttonArea.getWidth() + 6));
         buttonGroup.translateYProperty()
@@ -311,11 +298,6 @@ public class VideoBox {
     }
 
 
-    /**
-     * The close button to exit application
-     *
-     * @return Node representing a close button.
-     */
     private static Node createCloseButton() {
         Scene scene = stage.getScene();
         Group closeButton = new Group();
@@ -329,8 +311,8 @@ public class VideoBox {
         closeButton.setTranslateY(10);
         closeButton.getChildren()
                 .addAll(closeBackground, closeXmark);
-        // go to home menu
-        closeButton.setOnMouseClicked(mouseEvent -> stage.close());
+
+        closeButton.setOnMouseClicked(mouseEvent -> stage.close());         // go to home menu
         closeButton.setOnMouseClicked(mouseEvent -> {
             stage.close();
             mediaPlayer.stop();
@@ -339,12 +321,6 @@ public class VideoBox {
         return closeButton;
     }
 
-    /**
-     * After a file is dragged onto the application a new MediaPlayer
-     * instance is created with a media file.
-     *
-     * @param url The URL pointing to an audio file
-     */
     private static void playMedia(String url) {
         Scene scene = stage.getScene();
         if (mediaPlayer != null) {
@@ -359,14 +335,14 @@ public class VideoBox {
 
         Media media = new Media(url);
 
-        // display media's metadata
-        for (String s : media.getMetadata().keySet()) {
+
+        for (String s : media.getMetadata().keySet()) {                     // display media's metadata
             System.out.println(s);
         }
 
         mediaPlayer = new MediaPlayer(media);
-        // as the media is playing move the slider for progress
-        mediaPlayer.currentTimeProperty()
+
+        mediaPlayer.currentTimeProperty()                                   // as the media is playing move the slider for progress
                 .addListener(progressListener);
         mediaPlayer.setOnReady(() -> {
             updatePlayAndPauseButtons(false);
@@ -378,15 +354,15 @@ public class VideoBox {
                     .toSeconds());
             mediaPlayer.play();
         }); // setOnReady()
-// back to the beginning
-        mediaPlayer.setOnEndOfMedia(() -> {
+
+        mediaPlayer.setOnEndOfMedia(() -> {                                 // back to the beginning
             updatePlayAndPauseButtons(true);
-// change buttons to play and rewind
-            mediaPlayer.stop();
+
+            mediaPlayer.stop();                                             // change buttons to play and rewind
         }); // setOnEndOfMedia()
 
-        // set the media player to display video
-        MediaView mediaView = (MediaView) scene.lookup("#" + MEDIA_VIEW_ID);
+
+        MediaView mediaView = (MediaView) scene.lookup("#" + MEDIA_VIEW_ID);// set the media player to display video
         mediaView.setMediaPlayer(mediaPlayer);
     }
 
@@ -399,8 +375,8 @@ public class VideoBox {
     private static MediaView createMediaView() {
         MediaView mediaView = new MediaView();
         mediaView.setId(MEDIA_VIEW_ID);
-        //mediaView.setPreserveRatio(true);
-        mediaView.setSmooth(true);
+
+        mediaView.setSmooth(true);                                          //mediaView.setPreserveRatio(true);
 
         mediaView.fitWidthProperty()
                 .bind(stage.getScene()
@@ -426,16 +402,16 @@ public class VideoBox {
         Scene scene = stage.getScene();
         Node playButton = scene.lookup("#" + PLAY_BUTTON_ID);
         Node pauseButton = scene.lookup("#" + PAUSE_BUTTON_ID);
-// hide or show buttons
-        playButton.setVisible(playVisible);
+
+        playButton.setVisible(playVisible);                                 // hide or show buttons
         pauseButton.setVisible(!playVisible);
         if (playVisible) {
-// show play button
-            playButton.toFront();
+
+            playButton.toFront();                                           // show play button
             pauseButton.toBack();
         } else {
-// show pause button
-            pauseButton.toFront();
+
+            pauseButton.toFront();                                          // show pause button
             playButton.toBack();
         }
     }

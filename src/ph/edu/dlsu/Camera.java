@@ -14,7 +14,7 @@ import ph.edu.dlsu.vision.ObjectDetector;
 
 import java.io.*;
 
-public class Camera extends BaseCameraScene{
+public class Camera extends BaseCameraScene {
 
     private ObjectDetector faceDetector = new ObjectDetector();
 
@@ -24,11 +24,12 @@ public class Camera extends BaseCameraScene{
     private int frames;
 
     Boolean detectFace = null;
+    Boolean motionDetect = false;
 
     int imageCount = imageCount();
     int videoCount = videoCount();
 
-    public int videoCount(){
+    public int videoCount() {                                                    //Video Clips count
         String fileName = "Shots/VidClips/videoCount.txt";
 
         String line = null;
@@ -51,7 +52,7 @@ public class Camera extends BaseCameraScene{
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (bufferedReader != null){
+            if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
                 } catch (IOException e) {
@@ -62,7 +63,7 @@ public class Camera extends BaseCameraScene{
         return videoCount;
     }
 
-    public int imageCount(){
+    public int imageCount() {
         String fileName = "Shots/Snaps/imageCount.txt";
 
         String line = null;
@@ -94,10 +95,10 @@ public class Camera extends BaseCameraScene{
             }
         }
         return imageCount;
-    }
+    }                                                //Image count
 
     @Override
-    public Parent createCameraContent(){
+    public Parent createCameraContent() {                                        //Initialize capture
         try {
             initializeCapture();
         } catch (IOException e) {
@@ -106,7 +107,7 @@ public class Camera extends BaseCameraScene{
 
         checkBoxReader();
 
-        ScreenSize screen = new ScreenSize();
+        ScreenSize screen = new ScreenSize();                                   //Screen Size display
         displayWidth = screen.getDisplayWidth();
         displayHeight = screen.getDisplayHeight();
 
@@ -117,12 +118,12 @@ public class Camera extends BaseCameraScene{
         rootNode.setPrefSize(displayWidth, displayHeight);
 
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Center.png", displayWidth, displayHeight);
-        if(imgBackground != null){
-            rootNode.getChildren().add(imgBackground);
+        if (imgBackground != null) {
+            rootNode.getChildren().add(imgBackground);                      //Appearance of the Screen Bakcground
         }
 
         currentFrame = Utils.loadImage2View("res//images//Green-Screen-Center.png", frameWidth, frameHeight);
-        currentFrame.setTranslateX((displayWidth - frameWidth)/2.0);
+        currentFrame.setTranslateX((displayWidth - frameWidth) / 2.0);        //Load green screen image in the menu
         currentFrame.setTranslateY(0);
         rootNode.getChildren().add(currentFrame);
         startCamera();
@@ -133,17 +134,19 @@ public class Camera extends BaseCameraScene{
         return rootNode;
     }
 
-    private void initializeCapture() throws IOException{
+    private void initializeCapture() throws IOException {
         frameHeight = 0;
         frameWidth = 0;
-        int fps = 20; //Lower value means slow motion; Higher value means fast motion; value is equal to minute in real time
+        int fps = 20;                                                       //Lower value means slow motion;
+        //Higher value means fast motion;
+        //Value is equal to minute in real time
 
         String outputFile = "Shots/VidClips/vidClip" + videoCount + ".avi";
         int fourCC = VideoWriter.fourcc('i', 'y', 'u', 'v');
 
         videoWriter = new VideoWriter(outputFile, fourCC, fps, new Size(frameWidth, frameHeight), true);
 
-        if (!videoWriter.isOpened()){
+        if (!videoWriter.isOpened()) {                                       //Alert the user that the record video is unable to work!
             System.out.println("Unable to record a video!");
         }
 
@@ -185,51 +188,52 @@ public class Camera extends BaseCameraScene{
 
         exit.setOnMouseClicked(e -> {
             Boolean confirmQuit = Main.onExit();
-            if(confirmQuit){
+            if (confirmQuit) {
                 stopCamera();
             }
         });
 
         menuBox = new MenuHBox(home, capture, logout, exit);
 
-        menuBox.setTranslateX((displayWidth - 4 * menuWidth)/2.0);
+        menuBox.setTranslateX((displayWidth - 4 * menuWidth) / 2.0);
         menuBox.setTranslateY(0);
 
-    }
+    }                                          //Create Horizontal Menu
 
     @Override
-    public void onCameraFrame(Mat frame) throws IOException {
+    public void onCameraFrame(Mat frame, Boolean motionDetected) throws IOException {
+
+
 
         if (detectFace) {
             faceDetector.detectAndDisplay(frame);
         }
 
-        if (frames >= 0 && frames < 1200) { //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
+        if (frames >= 0 && frames < 1200) {                                 //frame 0 to frame n, where n is equal to fps declared at initCapture * 60 * desired duration in minutes
             System.out.println(frames);
             videoWriter.write(frame);
             frames++;
-        }else{
+        } else {
             videoWriter.release();
-            if(videoCount > 10){
+            if (videoCount > 10) {
                 videoCount = 1;
             }
             initializeCapture();
         }
 
-        if (takePicture){
+        if (takePicture || (motionDetected && motionDetect)) {                                          //capture photo and saved in a folder 'Snaps'
             String fileName = "snap" + imageCount + ".png";
 
             Imgcodecs.imwrite("Shots/Snaps/" + fileName, frame);
 
             takePicture = false;
 
-            if(imageCount <= 20) {
+            if (imageCount <= 20) {
                 if (imageCount == 20)
                     imageCount = 1;
                 else
                     imageCount++;
-            }
-            else
+            } else
                 imageCount = 1;
 
             String imageCount = Integer.toString(this.imageCount);
@@ -239,17 +243,16 @@ public class Camera extends BaseCameraScene{
             out.close();
 
         }
-
     }
 
-    @Override
-    public void stopCamera(){
+    @Override                                                               //Stop Camera and release the video
+    public void stopCamera() {
         if (videoWriter != null)
             videoWriter.release();
         super.stopCamera();
     }
 
-    public void checkBoxReader(){
+    public void checkBoxReader() {
         //Check the setting for the face detection
         String faceDetect = "setting/faceDetect.txt";
         String lineF = null;
@@ -264,9 +267,9 @@ public class Camera extends BaseCameraScene{
         bufferedReaderF = new BufferedReader(fileReaderF);
         try {
             while ((lineF = (bufferedReaderF.readLine())) != null) {
-                if (lineF.equals("1")){
+                if (lineF.equals("1")) {
                     detectFace = true;
-                } else if (lineF.equals("0")){
+                } else if (lineF.equals("0")) {
                     detectFace = false;
                 }
             }
@@ -276,6 +279,37 @@ public class Camera extends BaseCameraScene{
         if (bufferedReaderF != null) {
             try {
                 bufferedReaderF.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //Check the setting for the motion detection
+        String motion = "setting/motion.txt";                                     //Check the setting for the motion detection
+        String lineM = null;
+
+        BufferedReader bufferedReaderM = null;
+        FileReader fileReaderM = null;
+        try {
+            fileReaderM = new FileReader(motion);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bufferedReaderM = new BufferedReader(fileReaderM);
+        try {
+            while ((lineM = (bufferedReaderM.readLine())) != null) {
+                if (lineM.equals("1")){
+                    motionDetect = true;
+                } else if (lineM.equals("0")){
+                    motionDetect = false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (bufferedReaderM != null) {
+            try {
+                bufferedReaderM.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -20,10 +20,10 @@ public class Home {
 
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Right.png", displayWidth, displayHeight);
         if (imgBackground != null) {
-            rootNode.getChildren().add(imgBackground);
+            rootNode.getChildren().add(imgBackground);                                  //View Green Screen Background
         }
 
-        MenuTitle title = new MenuTitle("menu");
+        MenuTitle title = new MenuTitle("menu");                                        //Menu Title
         title.setTranslateX(200);
         title.setTranslateY(200);
 
@@ -34,13 +34,13 @@ public class Home {
         return rootNode;
     }
 
-    public void createVMenu() {
+    public void createVMenu() {                                                         //Creates menu item
 
         final CustomMenuItem camera = new CustomMenuItem("camera");
         final CustomMenuItem videoclips = new CustomMenuItem("video clips");
         final CustomMenuItem snapshots = new CustomMenuItem("snapshots");
         final CustomMenuItem logout = new CustomMenuItem("logout");
-        final CustomMenuItem setting = new CustomMenuItem("setting");
+        final CustomMenuItem setting = new CustomMenuItem("settings");
         final CustomMenuItem exit = new CustomMenuItem("exit");
 
 

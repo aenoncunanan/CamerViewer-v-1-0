@@ -3,7 +3,9 @@ package ph.edu.dlsu;
 import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 import ph.edu.dlsu.utils.Utils;
 
@@ -25,6 +27,11 @@ public abstract class BaseCameraScene {
     final double menuWidth = 220;
     final double menuHeight = 40;
 
+    boolean firstFrame = true;
+    boolean motionDetected = false;
+    Mat prevFrame = new Mat();
+    Mat frame = new Mat();
+
     ImageView currentFrame;
 
     ScheduledExecutorService timer;
@@ -35,7 +42,7 @@ public abstract class BaseCameraScene {
 
     public abstract void createHMenu();
 
-    public abstract void onCameraFrame(Mat frame) throws IOException;
+    public abstract void onCameraFrame(Mat frame, Boolean motionDetected) throws IOException;
 
     public void startCamera(){
 
@@ -80,7 +87,7 @@ public abstract class BaseCameraScene {
                 System.err.println("Failed to open the external camera at port " + index);
             }
 
-            //Open the built-in camera if external camera was not found!
+                                                            //Open the built-in camera if external camera was not found!
             if (index == maxCam){
                 this.capture.open(0);
 
@@ -106,7 +113,7 @@ public abstract class BaseCameraScene {
 
     }
 
-    public void stopCamera(){
+    public void stopCamera(){                               //Open to stopCamera
         try{
             this.timer.shutdown();
             this.timer.awaitTermination(33, TimeUnit.MILLISECONDS);
@@ -121,18 +128,47 @@ public abstract class BaseCameraScene {
 
     }
 
-    public Image grabFrame(){
+    public Image grabFrame(){                               //Grab image or capture image
         Image imageToShow = null;
-        Mat frame = new Mat();
+
+        Mat diffFrame = new Mat();
+        Mat grayDiffFrame = new Mat();
+        Mat grayPrevFrame = new Mat();
 
         if(this.capture.isOpened()){
+
+            if (!firstFrame){
+                prevFrame = frame.clone();
+            }
+
             try{
                 this.capture.read(frame);
 
-                if(!frame.empty()){
-                    onCameraFrame(frame);
+                if (!frame.empty()) {
 
+                    if (firstFrame) {
+                        firstFrame = false;
+                    } else {
+                        Core.absdiff(frame, prevFrame, diffFrame);
+
+                        Imgproc.cvtColor(diffFrame, grayDiffFrame, Imgproc.COLOR_BGR2GRAY);
+                        Imgproc.cvtColor(prevFrame, grayPrevFrame, Imgproc.COLOR_BGR2GRAY);
+
+                        float motionPercent = (Core.countNonZero(grayDiffFrame) / Core.countNonZero(grayPrevFrame)) * 100;
+
+                        if (motionPercent > 1) {
+                            System.out.println("MOTION DETECTED!");
+                            motionDetected = true;
+                        } else {
+//                            System.out.println("NO MOTION DETECTED!");
+                            motionDetected = false;
+                        }
+
+                    }
+
+                    onCameraFrame(frame, motionDetected);
                     imageToShow = Utils.mat2Image(frame);
+
                 }
             } catch (Exception e){
                 System.err.println("Exception during the image elaboration: " + e);

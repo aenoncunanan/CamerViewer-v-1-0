@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CameraViewer-v-1-0:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3238cc46-9bcd-4cce-b648-633faf0057d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/VidClips/vidClip1.avi" afterPath="$PROJECT_DIR$/Shots/VidClips/vidClip1.avi" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Screenshots/2016-04-15 (1).png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Screenshots/2016-04-15 (3).png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Screenshots/2016-04-15 (4).png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Screenshots/2016-04-15.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagrams/GreenScreenClassDiagram.suml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/diagrams/GreenScreenPackageDiagram.suml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/setting/motion.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Shots/VidClips/GameofThronesTheme.avi" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap1.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap10.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap10.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap11.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap11.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap12.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap12.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap13.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap13.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap14.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap14.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap15.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap15.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap16.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap16.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap17.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap17.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap18.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap18.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap19.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap19.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap2.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap20.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap20.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap3.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap4.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap5.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap6.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap7.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap7.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap8.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap8.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap9.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap9.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/VidClips/vidClip10.avi" afterPath="$PROJECT_DIR$/Shots/VidClips/vidClip10.avi" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/BaseCameraScene.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/BaseCameraScene.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Camera.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Camera.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/CameraGuest.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/CameraGuest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/CustomMenuItem.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/CustomMenuItem.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Home.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Home.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/HomeGuest.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/HomeGuest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Main.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Setting.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Setting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ConfirmationBox.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ConfirmationBox.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox$1.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/ImageBox.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/VideoBox.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/utils/VideoBox.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/imageCount.txt" afterPath="$PROJECT_DIR$/Shots/Snaps/imageCount.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/VidClips/videoCount.txt" afterPath="$PROJECT_DIR$/Shots/VidClips/videoCount.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setting/faceDetect.txt" afterPath="$PROJECT_DIR$/setting/faceDetect.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setting/userFile.txt" afterPath="$PROJECT_DIR$/setting/userFile.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/CameraGuest.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/CameraGuest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/Home.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/Home.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/HomeGuest.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/HomeGuest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/Setting.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/Setting.java" />
     </list>
     <ignored path="CameraViewer-v-1-0.iws" />
@@ -34,11 +80,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1972">
-              <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+            <state relative-caret-position="935">
+              <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -47,28 +93,28 @@
       <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-571">
-              <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+            <state relative-caret-position="2516">
+              <caret line="247" column="26" selection-start-line="247" selection-start-column="26" selection-end-line="247" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
                 <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
                 <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+                <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Setting.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Setting.java">
+      <file leaf-file-name="BaseCameraScene.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+            <state relative-caret-position="374">
+              <caret line="161" column="14" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
               <folding>
-                <element signature="method#userFile#0;class#Setting#0" expanded="false" />
-                <element signature="method#main#0;class#Setting#0" expanded="false" />
-                <element signature="method#createHMenu#0;class#Setting#0" expanded="false" />
-                <element signature="method#CheckBoxWriter#0;class#Setting#0" expanded="false" />
+                <element signature="method#startCamera#0;class#BaseCameraScene#0" expanded="false" />
+                <element signature="e#1137#1168#0" expanded="false" />
+                <element signature="method#stopCamera#0;class#BaseCameraScene#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -99,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/utils/Sound.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/css/asimov-font.css" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/CustomMenuItem.java" />
-        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Video.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/LogIn.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/utils/ImageBox.java" />
@@ -109,14 +154,15 @@
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/css/playing-video.css" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/utils/VideoBox.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/FourCC.java" />
-        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/CameraGuest.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/MenuTitle.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/HomeGuest.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/vision/Histogram.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/vision/ObjectDetector.java" />
+        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" />
+        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
+        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/CameraGuest.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Setting.java" />
         <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java" />
-        <option value="$PROJECT_DIR$/src/ph/edu/dlsu/Main.java" />
       </list>
     </option>
   </component>
@@ -129,9 +175,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="784" />
+    <option name="width" value="1378" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -174,9 +219,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -331,6 +375,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -714,32 +759,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="0" width="1378" height="780" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="simpleUML" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.50208336" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.79881656" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17307693" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18228404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18208517" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27366865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27366865" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32738096" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22470239" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -764,7 +810,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="33" />
+      <option name="time" value="42" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -790,6 +836,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -798,9 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
           <caret line="112" column="18" selection-start-line="112" selection-start-column="18" selection-end-line="112" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,6 +865,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -829,9 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -852,6 +894,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -873,6 +916,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -881,9 +925,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -904,34 +945,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3502">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
-            <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
-            <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -960,6 +974,36 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3502">
+          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
+            <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
+            <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -981,6 +1025,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1002,6 +1047,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1030,6 +1076,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1058,6 +1105,7 @@
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1073,13 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/CustomMenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1122,9 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,14 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Home.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,23 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/utils/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,9 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1189,49 +1199,81 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/CustomMenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="50" column="37" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/CameraGuest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="476">
+          <caret line="79" column="63" selection-start-line="79" selection-start-column="63" selection-end-line="79" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-571">
-          <caret line="106" column="25" selection-start-line="106" selection-start-column="25" selection-end-line="106" selection-end-column="25" />
+        <state relative-caret-position="2516">
+          <caret line="247" column="26" selection-start-line="247" selection-start-column="26" selection-end-line="247" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
             <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#Camera#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Setting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="103" column="40" selection-start-line="103" selection-start-column="40" selection-end-line="103" selection-end-column="40" />
+        <state relative-caret-position="153">
+          <caret line="115" column="48" selection-start-line="115" selection-start-column="48" selection-end-line="115" selection-end-column="48" />
           <folding>
             <element signature="method#userFile#0;class#Setting#0" expanded="false" />
-            <element signature="method#main#0;class#Setting#0" expanded="false" />
             <element signature="method#createHMenu#0;class#Setting#0" expanded="false" />
-            <element signature="method#CheckBoxWriter#0;class#Setting#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1972">
-          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="374">
+          <caret line="161" column="14" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+          <folding>
+            <element signature="method#startCamera#0;class#BaseCameraScene#0" expanded="false" />
+            <element signature="e#1137#1168#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#BaseCameraScene#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1241,10 +1283,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>CameraViewer-v-1-0:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

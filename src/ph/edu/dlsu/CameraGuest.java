@@ -3,7 +3,6 @@ package ph.edu.dlsu;
 import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Text;
 import org.opencv.core.Mat;
 import ph.edu.dlsu.utils.ScreenSize;
 import ph.edu.dlsu.utils.Utils;
@@ -13,7 +12,7 @@ import java.io.IOException;
 public class CameraGuest extends BaseCameraScene{
 
     @Override
-    public Parent createCameraContent(){
+    public Parent createCameraContent(){                                    //Camera guest simply opens the camera but not functional to all
 
         ScreenSize screen = new ScreenSize();
         displayWidth = screen.getDisplayWidth();
@@ -23,11 +22,11 @@ public class CameraGuest extends BaseCameraScene{
         frameHeight = displayHeight;
 
         Pane rootNode = new Pane();
-        rootNode.setPrefSize(displayWidth, displayHeight);
+        rootNode.setPrefSize(displayWidth, displayHeight);                  //Display Width and Heigth
 
         ImageView imgBackground = Utils.loadImage2View("res//images//Green-Screen-Center.png", displayWidth, displayHeight);
         if(imgBackground != null){
-            rootNode.getChildren().add(imgBackground);
+            rootNode.getChildren().add(imgBackground);                      //Image Background appearance
         }
 
         currentFrame = Utils.loadImage2View("res//images//Green-Screen-Center.png", frameWidth, frameHeight);
@@ -43,7 +42,7 @@ public class CameraGuest extends BaseCameraScene{
     }
 
     @Override
-    public void createHMenu() {
+    public void createHMenu() {                                             //Home, Capture, Logout, Exit button will be seen
         final CustomMenuItem home = new CustomMenuItem("home", menuWidth, menuHeight);
         final CustomMenuItem capture = new CustomMenuItem("capture", menuWidth, menuHeight);
         final CustomMenuItem logout = new CustomMenuItem("logout", menuWidth, menuHeight);
@@ -78,7 +77,7 @@ public class CameraGuest extends BaseCameraScene{
     }
 
     @Override
-    public void onCameraFrame(Mat frame) throws IOException {
+    public void onCameraFrame(Mat frame, Boolean motionDetected) throws IOException {
 
     }
 

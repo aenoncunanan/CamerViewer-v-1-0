@@ -20,10 +20,6 @@ import ph.edu.dlsu.utils.Utils;
 
 import java.io.*;
 
-/**
- * Created by ${AenonCunanan} on 05/04/2016.
- */
-
 public class Setting {
 
     ScreenSize screen = new ScreenSize();
@@ -38,15 +34,17 @@ public class Setting {
     String currentName = null;
     String currentPass = null;
 
-    CheckBox box = new CheckBox();
-    CheckBox box2 = new CheckBox();
+    CheckBox box = new CheckBox();          //Checkbox for the face detection
+    CheckBox box2 = new CheckBox();         //Checkbox for the guest user
+    CheckBox box3 = new CheckBox();         //Checkbox for the motion detection
 
     Boolean boxBool = false;
     Boolean box2Bool = true;
+    Boolean box3Bool = false;
 
     public void checkBoxReader(){
-        //Check the setting for the face detection
-        String faceDetect = "setting/faceDetect.txt";
+        //For Face Detection
+        String faceDetect = "setting/faceDetect.txt";                           //Check the setting for the face detection
         String lineF = null;
 
         BufferedReader bufferedReaderF = null;
@@ -76,8 +74,8 @@ public class Setting {
             }
         }
 
-        //Check the setting for the guest user
-        String guest = "setting/guest.txt";
+        //For Guest User
+        String guest = "setting/guest.txt";                                     //Check the setting for the guest user
         String lineG = null;
 
         BufferedReader bufferedReaderG = null;
@@ -102,6 +100,38 @@ public class Setting {
         if (bufferedReaderG != null) {
             try {
                 bufferedReaderG.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        //For Motion Detection
+        String motion = "setting/motion.txt";                                     //Check the setting for the motion detection
+        String lineM = null;
+
+        BufferedReader bufferedReaderM = null;
+        FileReader fileReaderM = null;
+        try {
+            fileReaderM = new FileReader(motion);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        bufferedReaderM = new BufferedReader(fileReaderM);
+        try {
+            while ((lineM = (bufferedReaderM.readLine())) != null) {
+                if (lineM.equals("1")){
+                    box3Bool = true;
+                } else if (lineM.equals("0")){
+                    box3Bool = false;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (bufferedReaderM != null) {
+            try {
+                bufferedReaderM.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -179,53 +209,55 @@ public class Setting {
         box2.setSelected(box2Bool);
         grid.add(box2, 0, 8);
 
-        //Create new text for welcome
-        Text scenetitle = new Text("Setup account: ");
+        box3.setText("Automatically take a photo\nwhen motion is detected");
+        box3.setSelected(box3Bool);
+        grid.add(box3, 0, 9);
+
+        Text scenetitle = new Text("Setup account: ");                      //Create new text for welcome
         scenetitle.setFont(Font.font("Asimov", FontWeight.NORMAL, 55));
         scenetitle.setFill(Color.web("#009fe0"));
         grid.add(scenetitle, 0, 0, 2, 1);
 
-        //Create a new label for the username
-        Text userName = new Text("Current username: ");
+        Text userName = new Text("Current username: ");                     //Create a new label for the username
         userName.setFont(Font.font("Asimov", FontWeight.NORMAL, 15));
         userName.setFill(Color.web("#2c3e50"));
         grid.add(userName, 0, 1);                                           //Set it at Column 0, Row 1
 
-        //Create a new Text field for the user's input
-        TextField user = new TextField();
+
+        TextField user = new TextField();                                   //Create a new Text field for the user's input
         user.setPromptText("Enter your current username");                  //Set a message in the text field
         grid.add(user, 1, 1);                                               //Set it at Column 1, Row 1
 
-        //Create a new label for the password
-        Text pw = new Text("Current password: ");
+
+        Text pw = new Text("Current password: ");                           //Create a new label for the password
         pw.setFont(Font.font("Asimov", FontWeight.NORMAL, 15));
         pw.setFill(Color.web("#2c3e50"));
         grid.add(pw, 0, 2);
 
-        //Create a new Text field for the user's input
-        PasswordField pass = new PasswordField();
+
+        PasswordField pass = new PasswordField();                           //Create a new Text field for the user's input
         pass.setPromptText("Enter your current password");                  //Set a message in the text field
         grid.add(pass, 1, 2);                                               //Set it at Column 1, Row 2
 
-        //Create a new label for the username
-        Text userNameNew = new Text("New username: ");
+
+        Text userNameNew = new Text("New username: ");                      //Create a new label for the username
         userNameNew.setFont(Font.font("Asimov", FontWeight.NORMAL, 15));
         userNameNew.setFill(Color.web("#2c3e50"));
         grid.add(userNameNew, 0, 3);                                        //Set it at Column 0, Row 3
 
-        //Create a new Text field for the user's input
-        TextField userNew = new TextField();
-        userNew.setPromptText("Enter your new username");                  //Set a message in the text field
-        grid.add(userNew, 1, 3);                                           //Set it at Column 1, Row 3
 
-        //Create a new label for the password
-        Text pwNew = new Text("New password: ");
+        TextField userNew = new TextField();                                //Create a new Text field for the user's input
+        userNew.setPromptText("Enter your new username");                   //Set a message in the text field
+        grid.add(userNew, 1, 3);                                            //Set it at Column 1, Row 3
+
+
+        Text pwNew = new Text("New password: ");                            //Create a new label for the password
         pwNew.setFont(Font.font("Asimov", FontWeight.NORMAL, 15));
         pwNew.setFill(Color.web("#2c3e50"));
         grid.add(pwNew, 0, 4);
 
-        //Create a new Text field for the user's input
-        PasswordField passNew = new PasswordField();
+
+        PasswordField passNew = new PasswordField();                        //Create a new Text field for the user's input
         passNew.setPromptText("Enter your new password");                  //Set a message in the text field
         grid.add(passNew, 1, 4);                                           //Set it at Column 1, Row 4
 
@@ -271,7 +303,7 @@ public class Setting {
                         e.printStackTrace();
                     }
 
-                    message.setText("Username and Password\nwas successfully changed!");                   //Prompt a message if the inputs are correct
+                        message.setText("Username and Password\nwas successfully changed!");                   //Prompt a message if the inputs are correct
                     user.clear();                                                   //Empty the username text field
                     pass.clear();                                                   //Empty the password text field
                     userNew.clear();                                                //Empty the new username text field
@@ -329,6 +361,7 @@ public class Setting {
     }
 
     public void CheckBoxWriter(){
+        //For Face Detection
         if (box.isSelected()){
             File faceDetect = new File("setting/faceDetect.txt");
             BufferedWriter outFace = null;
@@ -367,6 +400,7 @@ public class Setting {
             }
         }
 
+        //For Guest User
         if (box2.isSelected()){
             File guest = new File("setting/guest.txt");
             BufferedWriter outGuest = null;
@@ -400,6 +434,45 @@ public class Setting {
             }
             try {
                 outGuest.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+
+        //For Motion Detection
+        if (box3.isSelected()){
+            File motion = new File("setting/motion.txt");
+            BufferedWriter outMotion = null;
+            try {
+                outMotion = new BufferedWriter(new FileWriter(motion));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outMotion.write("1");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outMotion.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }else {
+            File motion = new File("setting/motion.txt");
+            BufferedWriter outMotion = null;
+            try {
+                outMotion = new BufferedWriter(new FileWriter(motion));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outMotion.write("0");
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                outMotion.close();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
