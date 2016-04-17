@@ -156,7 +156,9 @@ public abstract class BaseCameraScene {
 
                         float motionPercent = (Core.countNonZero(grayDiffFrame) / Core.countNonZero(grayPrevFrame)) * 100;
 
-                        if (motionPercent > 1) {
+                        System.out.println(motionPercent);
+
+                        if (motionPercent > 0) {            //Percentage to consider as a motion
                             System.out.println("MOTION DETECTED!");
                             motionDetected = true;
                         } else {
