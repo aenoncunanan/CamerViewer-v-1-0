@@ -7,38 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3238cc46-9bcd-4cce-b648-633faf0057d1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap1.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap10.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap10.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap11.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap11.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap12.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap12.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap13.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap13.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap14.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap14.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap15.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap15.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap16.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap16.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap17.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap17.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap18.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap18.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap19.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap19.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap2.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap2.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap20.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap20.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap3.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap3.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap4.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap4.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap5.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap5.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap6.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap6.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap7.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap7.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap8.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap8.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/snap9.png" afterPath="$PROJECT_DIR$/Shots/Snaps/snap9.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/BaseCameraScene.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/BaseCameraScene.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Camera.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Camera.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/CameraGuest.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/CameraGuest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Home.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Home.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/HomeGuest.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/HomeGuest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Setting.class" afterPath="$PROJECT_DIR$/out/production/CameraViewer-v-1-0/ph/edu/dlsu/Setting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Screenshots/Capture&amp;Recording.png" afterPath="$PROJECT_DIR$/Screenshots/Capture&amp;Recording.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Screenshots/Home.png" afterPath="$PROJECT_DIR$/Screenshots/Home.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Screenshots/snapshot (minimized).png" afterPath="$PROJECT_DIR$/Screenshots/snapshot (minimized).png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/Snaps/imageCount.txt" afterPath="$PROJECT_DIR$/Shots/Snaps/imageCount.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Shots/VidClips/videoCount.txt" afterPath="$PROJECT_DIR$/Shots/VidClips/videoCount.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setting/faceDetect.txt" afterPath="$PROJECT_DIR$/setting/faceDetect.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setting/userFile.txt" afterPath="$PROJECT_DIR$/setting/userFile.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" afterPath="$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java" />
     </list>
     <ignored path="CameraViewer-v-1-0.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,41 +32,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="935">
-              <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
+            <state relative-caret-position="459">
+              <caret line="68" column="35" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="235" column="0" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#videoCount#0;class#Camera#0" expanded="false" />
-                <element signature="method#imageCount#0;class#Camera#0" expanded="false" />
-                <element signature="method#createHMenu#0;class#Camera#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseCameraScene.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-              <folding>
-                <element signature="method#startCamera#0;class#BaseCameraScene#0" expanded="false" />
-                <element signature="e#1137#1168#0" expanded="false" />
-                <element signature="method#stopCamera#0;class#BaseCameraScene#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -154,8 +97,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="780" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -738,7 +682,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1378" height="780" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -749,11 +693,11 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896176" sideWeight="0.50208336" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.79881656" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22470239" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22337279" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988167" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18208517" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18155198" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1192,14 +1136,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="935">
-          <caret line="77" column="34" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/CameraGuest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1219,6 +1155,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="164" column="59" selection-start-line="164" selection-start-column="59" selection-end-line="164" selection-end-column="59" />
+          <folding>
+            <element signature="method#startCamera#0;class#BaseCameraScene#0" expanded="false" />
+            <element signature="e#1137#1168#0" expanded="false" />
+            <element signature="method#stopCamera#0;class#BaseCameraScene#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Camera.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1232,15 +1180,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/BaseCameraScene.java">
+    <entry file="file://$PROJECT_DIR$/src/ph/edu/dlsu/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding>
-            <element signature="method#startCamera#0;class#BaseCameraScene#0" expanded="false" />
-            <element signature="e#1137#1168#0" expanded="false" />
-            <element signature="method#stopCamera#0;class#BaseCameraScene#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="459">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="8" selection-end-line="68" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
